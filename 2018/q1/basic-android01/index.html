@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Basic Android 01 - 0124@HSNU</title>
+
+	<meta name="description" content="基礎 Android 教學，0124@HSNU">
+	<meta name="author" content="Oschangkai">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<style>
+		.reveal>.slides>section {
+			font-family: 'Open Sans'!important;
+		}
+
+		h2 {
+			font-family: 'Open Sans'!important;
+		}
+
+		.reveal>.slides>section>ul,
+		.reveal>.slides>section>p {
+			display: block;
+			text-align: left;
+			line-height: 5.5rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="center">
+				<h2>Android 入門</h2>
+				<small>Android Studio 與 Java 介紹</small>
+			</section>
+			<section>
+				<h3>Who am i ?</h3>
+				<img src="../../../head.jpeg" style="float: right; border-radius: 50%;" width="25%" />
+				<ul>
+					<li>張楷翊</li>
+					<li>元智資管 - 三年級</li>
+					<li>元智資訊研究社 (ITAC) 3th 社長</li>
+					<li>學了很多雜七雜八的東西
+						<br />
+						<small>Java、R、C++、網路架設 ...</small>
+					</li>
+					<li>專長：網頁相關技術
+						<br />
+						<small>爬蟲(pyhton)、Javascript、ASP.NET ...</small>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>這堂課希望的進行方式~</h3>
+				<p class="fragment" style="padding-top: 70px;">大家不要害羞</p>
+				<p class="fragment">問題直接問</p>
+				<p class="fragment">互相切磋學習</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			controls: true, // 顯示箭頭
+			progress: true, // 顯示進度條
+			history: true,
+			center: false, // 是否上下置中
+			slideNumber: true,
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function () {
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
