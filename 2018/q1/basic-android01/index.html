@@ -2,254 +2,348 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Basic Android 01 - 0124@HSNU</title>
+  <title>Basic Android 01 - 0124@HSNU</title>
 
-	<meta name="description" content="基礎 Android 教學，0124@HSNU">
-	<meta name="author" content="Oschangkai">
+  <meta name="description" content="基礎 Android 教學，0124@HSNU">
+  <meta name="author" content="Oschangkai">
 
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/solarized.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/solarized.css">
 
-	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/androidstudio.css">
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
 
-	<style>
-		.reveal>.slides>section {
-			font-family: 'Open Sans'!important;
-		}
+  <style>
+    .reveal>.slides>section {
+      font-family: 'Open Sans'!important;
+    }
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			font-family: 'Open Sans'!important;
-		}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Open Sans'!important;
+    }
 
-		.reveal>.slides>section>ul,
-		.reveal>.slides>section>p {
-			display: block;
-			text-align: left;
-			line-height: 5.5rem;
-		}
+    .reveal>.slides>section>ul,
+    .reveal>.slides>section>p {
+      display: block;
+      text-align: left;
+      line-height: 5.5rem;
+    }
 
-		.reveal section img {
-			background: none;
-			border: none;
-			box-shadow: none;
-		}
-	</style>
+    .reveal section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .reveal pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+    }
+  </style>
 </head>
 
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<!-- Cover -->
-			<section class="center">
-				<h2>Android 入門</h2>
-				<small>Android Studio 與 Java 介紹</small>
-				<br />
-				<!--http://www.unitag.io/qrcode'-->
-				<img height="150px" src="./img/url.png" alt='QR Code' />
-			</section>
-			<!-- Slides 1 -->
-			<section>
-				<h3>Who am i ?</h3>
-				<img src="../../../head.jpeg" style="float: right; border-radius: 50%;" width="25%" />
-				<ul>
-					<li>張楷翊</li>
-					<li>元智資管 - 三年級</li>
-					<li>元智資訊研究社 (ITAC) 3th 社長</li>
-					<li>學了很多雜七雜八的東西
-						<br />
-						<small>Java、R、C++、網路架設 ...</small>
-					</li>
-					<li>專長：網頁相關技術
-						<br />
-						<small>爬蟲 (pyhton)、Javascript、ASP.NET ...</small>
-					</li>
-				</ul>
-			</section>
-			<!-- Slides 2 -->
-			<section>
-				<h3>這堂課希望的進行方式~</h3>
-				<p class="fragment" style="padding-top: 70px;">大家不要害羞</p>
-				<p class="fragment">問題直接問</p>
-				<p class="fragment">互相切磋學習</p>
-				<!--http://www.unitag.io/qrcode'-->
-				<img style="margin-bottom: -13rem; margin-left: -7rem; bottom: 0; left: 0; position: absolute;" height="150px" src="./img/url.png"
-				  alt='QR Code' />
-				<aside class="notes" data-markdown>
-					- 我跟你們一樣是學生，也在學習中
-					- 不管是上課內容、大學生活、程式問題，都可以問，我會的都可以教你們 
-					- 當然如果有我不會而你們會的，我也想向你們請教 
-					- 有什麼想學的，我們可以討論一下，下次可以教 
-					- 問一下 
-						- 學生年紀 
-						- 有沒有學過程式
-						- 學過什麼 
-						- 會什麼
-				</aside>
-			</section>
-			<!-- Slides 3 -->
-			<section>
-				<h2>注意到了嗎？</h2>
-				<h3>QR Code 能通往這份簡報唷！</h3>
-				<img src="./img/url.png" alt='QR Code' />
-				<a href="https://slides.kaiyeee.tw/2018/q1/basic-android01">https://slides.kaiyeee.tw/2018/q1/basic-android01</a>
-			</section>
-			<!-- Slides 4 -->
-			<section class="center">
-				<h2>Get Started！</h2>
-			</section>
-			<!-- Slides 5 -->
-			<section>
-				<section>
-					<p style="text-align: left;">Download and Install JDK9</p>
-					<img src="./img/jdk9-download-page.png" height="72%" width="72%" alt="jdk9 download page" />
-					<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html">
-						<small>http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html</small>
-					</a>
-				</section>
-				<section>
-					<p style="text-align: left;">Download and Install Android Studio</p>
-					<img src="./img/android-studio-download-page.png" height="72%" width="72%" alt="android studio download page" />
-					<a href="https://developer.android.com/studio/index.html">
-						<small>https://developer.android.com/studio/index.html</small>
-					</a>
-				</section>
-			</section>
-			<!-- Slides 6 -->
-			<section>
-				<section>
-					<p style="text-align: left;">Start a new project</p>
-					<img src="./img/android-studio_00-01.png" alt="android studio startup page"/>
-				</section>
-				<section>
-					<img src="./img/android-studio_00-02.png" alt="android studio new project page1"/>
-				</section>
-				<section>
-					<img src="./img/android-studio_00-03.png" alt="android studio new project page2"/>
-				</section>
-				<section>
-					<img src="./img/android-studio_00-04.png" alt="android studio new project page3"/>
-				</section>
-				<section>
-					<img src="./img/android-studio_00-05.png" alt="android studio new project page4"/>
-				</section>
-				<section>
-					<img src="./img/android-studio_00-06.png" alt="android studio new project page5"/>
-				</section>
-			</section>
-			<!-- Slides 7 -->
-			<section>
-				<section>
-					<p style="text-align: left;">Android Studio Overview - Java</p>
-					<img src="./img/android-studio_01-01.png" alt="android studio IDE - java"/>
-				</section>
-				<section>
-					<p style="text-align: left;">Android Studio Overview - Layout</p>					
-					<img src="./img/android-studio_01-02.png" alt="android studio IDE - layout"/>
-				</section>
-				<section>
-					<p style="text-align: left;">Android Studio Overview - Layout (XML)</p>
-					<img src="./img/android-studio_01-03.png" alt="android studio IDE - layout(xml)"/>
-				</section>
-			</section>
-			<!-- Slides 8 -->
-			<section>
-				<section>
-					<p style="text-align: left;">First App: Hello Goodbye</p>
-					<img src="./img/android-studio_02-01.png" alt="first app: layout setting (textview)"/>
-				</section>
-				<section>
-					<img src="./img/android-studio_02-02.png" alt="first app: layout setting (textview - xml)"/>
-				</section>
-				<section>
-						<img src="./img/android-studio_02-03.png" alt="first app: layout setting (button)"/>
-				</section>
-				<section>
-					<img src="./img/android-studio_02-04.png" alt="first app: layout setting (button - xml)"/>
-				</section>
-			</section>
-			<!-- Slides 9 -->
-			<section>
-				<section class="center">
-					<p>Why not build it right now?</p>
-				</section>
-				<section>
-					<p style="text-align: left;">Build App</p>
-					<img src="./img/android-studio_03-01.png" alt="build app (1)"/>					
-				</section>
-				<section>
-						<img src="./img/android-studio_03-02.png" alt="build app (2)"/>					
-				</section>
-				<section>
-						<p style="text-align: left;">Setting > About > click "Build number" 7 times</p>
-						<img src="./img/android-studio_03-03.png" height="50%" width="50%" alt="build app (phone)"/>					
-				</section>
-			</section>
-		</div>
-	</div>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover -->
+      <section class="center">
+        <h2>Android 入門</h2>
+        <small>Android Studio 與 Java 介紹</small>
+        <br />
+        <!--http://www.unitag.io/qrcode'-->
+        <img height="150px" src="./img/url.png" alt='QR Code' />
+      </section>
+      <!-- Slides 1 -->
+      <section>
+        <h3>Who am i ?</h3>
+        <img src="../../../head.jpeg" style="float: right; border-radius: 50%;" width="25%" />
+        <ul>
+          <li>張楷翊</li>
+          <li>元智資管 - 三年級</li>
+          <li>元智資訊研究社 (ITAC) 3th 社長</li>
+          <li>學了很多雜七雜八的東西
+            <br />
+            <small>Java、R、C++、網路架設 ...</small>
+          </li>
+          <li>專長：網頁相關技術
+            <br />
+            <small>爬蟲 (pyhton)、Javascript、ASP.NET ...</small>
+          </li>
+        </ul>
+      </section>
+      <!-- Slides 2 -->
+      <section>
+        <h3>這堂課希望的進行方式~</h3>
+        <p class="fragment" style="padding-top: 70px;">大家不要害羞</p>
+        <p class="fragment">問題直接問</p>
+        <p class="fragment">互相切磋學習</p>
+        <!--http://www.unitag.io/qrcode'-->
+        <img style="margin-bottom: -13rem; margin-left: -7rem; bottom: 0; left: 0; position: absolute;" height="150px" src="./img/url.png"
+          alt='QR Code' />
+        <aside class="notes" data-markdown>
+          - 我跟你們一樣是學生，也在學習中
+          - 不管是上課內容、大學生活、程式問題，都可以問，我會的都可以教你們 
+          - 當然如果有我不會而你們會的，我也想向你們請教 
+          - 有什麼想學的，我們可以討論一下，下次可以教 
+          - 問一下 
+            - 學生年紀 
+            - 有沒有學過程式
+            - 學過什麼 
+            - 會什麼
+        </aside>
+      </section>
+      <!-- Slides 3 -->
+      <section>
+        <h2>注意到了嗎？</h2>
+        <h3>QR Code 能通往這份簡報唷！</h3>
+        <img src="./img/url.png" alt='QR Code' />
+        <a href="https://slides.kaiyeee.tw/2018/q1/basic-android01">https://slides.kaiyeee.tw/2018/q1/basic-android01</a>
+      </section>
+      <!-- Slides 4 -->
+      <section class="center">
+        <h2>Get Started！</h2>
+      </section>
+      <!-- Slides 5 -->
+      <section>
+        <section>
+          <p style="text-align: left;">Download and Install JDK9</p>
+          <img src="./img/jdk9-download-page.png" height="72%" width="72%" alt="jdk9 download page" />
+          <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html">
+            <small>http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html</small>
+          </a>
+        </section>
+        <section>
+          <p style="text-align: left;">Download and Install Android Studio</p>
+          <img src="./img/android-studio-download-page.png" height="72%" width="72%" alt="android studio download page" />
+          <a href="https://developer.android.com/studio/index.html">
+            <small>https://developer.android.com/studio/index.html</small>
+          </a>
+        </section>
+      </section>
+      <!-- Slides 6 -->
+      <section>
+        <section>
+          <p style="text-align: left;">Start a new project</p>
+          <img src="./img/android-studio_00-01.png" alt="android studio startup page"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_00-02.png" alt="android studio new project page1"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_00-03.png" alt="android studio new project page2"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_00-04.png" alt="android studio new project page3"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_00-05.png" alt="android studio new project page4"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_00-06.png" alt="android studio new project page5"/>
+        </section>
+      </section>
+      <!-- Slides 7 -->
+      <section>
+        <section>
+          <p style="text-align: left;">Android Studio Overview - Java</p>
+          <img src="./img/android-studio_01-01.png" alt="android studio IDE - java"/>
+        </section>
+        <section>
+          <p style="text-align: left;">Android Studio Overview - Layout</p>					
+          <img src="./img/android-studio_01-02.png" alt="android studio IDE - layout"/>
+        </section>
+        <section>
+          <p style="text-align: left;">Android Studio Overview - Layout (XML)</p>
+          <img src="./img/android-studio_01-03.png" alt="android studio IDE - layout(xml)"/>
+        </section>
+      </section>
+      <!-- Slides 8 -->
+      <section>
+        <section>
+          <p style="text-align: left;">First App: Hello Goodbye</p>
+          <img src="./img/android-studio_02-01.png" alt="first app: layout setting (textview)"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_02-02.png" alt="first app: layout setting (textview - xml)"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_02-03.png" alt="first app: layout setting (button)"/>
+        </section>
+        <section>
+          <img src="./img/android-studio_02-04.png" alt="first app: layout setting (button - xml)"/>
+        </section>
+      </section>
+      <!-- Slides 9 -->
+      <section>
+        <section class="center">
+          <p>Why not build it right now?</p>
+        </section>
+        <section>
+          <p style="text-align: left;">Build App</p>
+          <img src="./img/android-studio_03-01.png" alt="build app (1)"/>					
+        </section>
+        <section>
+          <img src="./img/android-studio_03-02.png" alt="build app (2)"/>					
+        </section>
+        <section>
+          <p style="text-align: left;">Settings > About > click "Build number" 7 times</p>
+          <img src="./img/android-studio_03-03.png" height="50%" width="50%" alt="turn on dev options (phone)"/>					
+        </section>
+        <section>
+          <p style="text-align: left;">Go to Developer Options, Check "USB debugging"</p>
+          <img src="./img/android-studio_03-04.png" height="50%" width="50%" alt="dev options (phone)"/>					
+        </section>
+        <section>
+          <p style="text-align: left;">Screenshot</p>
+          <img src="./img/android-studio_03-05.png" height="34%" width="34%" alt="hellogoodbye layout"/>
+        </section>
+      </section>
+      <!-- Slides 10 -->
+      <section>
+        <section>
+          <p style="text-align: left;">Finishing Java code...</p>
+          <img src="./img/android-studio_04-01.png" alt="hellohoodbye java code"/>
+        </section>
+        <section>
+          <p style="text-align: left;">Java code for copy and paste</p>          
+          <pre>
+            <code class="hljs java" style="font-size:12px; line-height: 15px" data-trim data-noescape>
+              public class MainActivity extends AppCompatActivity {
 
-	<script src="lib/js/head.min.js"></script>
-	<script src="js/reveal.js"></script>
+                private TextView greetingTextView;
+                private Button greetingButton;
 
-	<script>
-		// More info about config & dependencies:
-		// - https://github.com/hakimel/reveal.js#configuration
-		// - https://github.com/hakimel/reveal.js#dependencies
-		Reveal.initialize({
-			controls: true, // 顯示箭頭
-			progress: true, // 顯示進度條
-			history: true,
-			center: false, // 是否上下置中
-			slideNumber: true,
-			dependencies: [{
-					src: 'plugin/markdown/marked.js'
-				},
-				{
-					src: 'plugin/markdown/markdown.js'
-				},
-				{
-					src: 'plugin/notes/notes.js',
-					async: true
-				},
-				// Zoom in and out with Alt+click
-				{
-					src: 'plugin/zoom-js/zoom.js',
-					async: true
-				},
-				{
-					src: 'plugin/highlight/highlight.js',
-					async: true,
-					callback: function () {
-						hljs.initHighlightingOnLoad();
-					}
-				}
-			]
-		});
-	</script>
+                private boolean isHello;
+
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+                  setContentView(R.layout.activity_main);
+
+                  greetingButton = findViewById(R.id.greetingBTN);
+                  greetingTextView = findViewById(R.id.greetingTV);
+
+                  initGreeting();
+
+                  greetingButton.setOnClickListener(toggleGreeting);
+                }
+
+                private void initGreeting() {
+                  isHello = true;
+                }
+
+                private final View.OnClickListener toggleGreeting = new View.OnClickListener() {
+                  @Override
+                  public void onClick(View btn) {
+                    if(isHello) {
+                      isHello = false;
+                      greetingTextView.setText("Goodbye");
+                    } else {
+                      isHello = true;
+                      greetingTextView.setText("Hello");
+                    }
+                  }
+                };
+              }
+            </code>
+          </section>
+      </section>
+      <!-- Slides 11 -->
+      <section>
+        <h3 style="text-align: left;">最後的最後...</h3>
+        <p style="font-size: 28px; line-height: 42px; padding-top: 30px;">程式碼可以在以下網址找到：
+          <br />
+          <a href="https://github.com/Oschangkai/2018Android-at-HSNU">https://github.com/Oschangkai/2018Android-at-HSNU</a>
+        </p>
+        <p style="font-size: 28px; line-height: 42px;">
+          裡面藏了很多東西，歡迎去挖寶：
+          <br />
+          <a href="https://github.com/Oschangkai">https://github.com/Oschangkai</a>          
+        </p>
+        <p style="font-size: 22px; line-height: 44px; padding-top: 72px;">
+            <span style="font-size: 36px;">我的聯絡方式...</span>
+            <br />
+            Email:&nbsp;&nbsp;<a href="mailto://oschangakai@gmail.com">oschangakai@gmail.com</a>
+            <br />
+            FB:&nbsp;&nbsp;<a href="https://fb.com/kaiyeeeee">https://fb.com/kaiyeeeee</a>
+            <br />
+            Telegram:&nbsp;&nbsp;<a href="https://t.me/kaiyeee">@kaiyeee</a>
+          </p>
+      </section>
+      <section>
+        <h3 style="text-align: left;">回饋表單</h3>
+        <p style="font-size: 28px; line-height: 42px; padding-top: 30px;">
+          拜託大家幫我填個表單~~
+          <br />
+          <a href="https://goo.gl/forms/rLIOLI0W1MiphYSz1">https://goo.gl/forms/rLIOLI0W1MiphYSz1</a>
+        </p>
+        <p style="font-size: 46px; padding-top: 108px;">Thanks~~</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        {
+          src: 'plugin/markdown/markdown.js'
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true
+        },
+        // Zoom in and out with Alt+click
+        {
+          src: 'plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: 'plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
 </body>
 
 </html>
