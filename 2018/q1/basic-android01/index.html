@@ -16,7 +16,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/theme/solarized.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -37,7 +37,12 @@
 			font-family: 'Open Sans'!important;
 		}
 
-		h2 {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
 			font-family: 'Open Sans'!important;
 		}
 
@@ -47,16 +52,27 @@
 			text-align: left;
 			line-height: 5.5rem;
 		}
+
+		.reveal section img {
+			background: none;
+			border: none;
+			box-shadow: none;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="reveal">
 		<div class="slides">
+			<!-- Cover -->
 			<section class="center">
 				<h2>Android 入門</h2>
 				<small>Android Studio 與 Java 介紹</small>
+				<br />
+				<!--http://www.unitag.io/qrcode'-->
+				<img height="150px" src="./img/url.png" alt='QR Code' />
 			</section>
+			<!-- Slides 1 -->
 			<section>
 				<h3>Who am i ?</h3>
 				<img src="../../../head.jpeg" style="float: right; border-radius: 50%;" width="25%" />
@@ -70,15 +86,128 @@
 					</li>
 					<li>專長：網頁相關技術
 						<br />
-						<small>爬蟲(pyhton)、Javascript、ASP.NET ...</small>
+						<small>爬蟲 (pyhton)、Javascript、ASP.NET ...</small>
 					</li>
 				</ul>
 			</section>
+			<!-- Slides 2 -->
 			<section>
 				<h3>這堂課希望的進行方式~</h3>
 				<p class="fragment" style="padding-top: 70px;">大家不要害羞</p>
 				<p class="fragment">問題直接問</p>
 				<p class="fragment">互相切磋學習</p>
+				<!--http://www.unitag.io/qrcode'-->
+				<img style="margin-bottom: -13rem; margin-left: -7rem; bottom: 0; left: 0; position: absolute;" height="150px" src="./img/url.png"
+				  alt='QR Code' />
+				<aside class="notes" data-markdown>
+					- 我跟你們一樣是學生，也在學習中
+					- 不管是上課內容、大學生活、程式問題，都可以問，我會的都可以教你們 
+					- 當然如果有我不會而你們會的，我也想向你們請教 
+					- 有什麼想學的，我們可以討論一下，下次可以教 
+					- 問一下 
+						- 學生年紀 
+						- 有沒有學過程式
+						- 學過什麼 
+						- 會什麼
+				</aside>
+			</section>
+			<!-- Slides 3 -->
+			<section>
+				<h2>注意到了嗎？</h2>
+				<h3>QR Code 能通往這份簡報唷！</h3>
+				<img src="./img/url.png" alt='QR Code' />
+				<a href="https://slides.kaiyeee.tw/2018/q1/basic-android01">https://slides.kaiyeee.tw/2018/q1/basic-android01</a>
+			</section>
+			<!-- Slides 4 -->
+			<section class="center">
+				<h2>Get Started！</h2>
+			</section>
+			<!-- Slides 5 -->
+			<section>
+				<section>
+					<p style="text-align: left;">Download and Install JDK9</p>
+					<img src="./img/jdk9-download-page.png" height="72%" width="72%" alt="jdk9 download page" />
+					<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html">
+						<small>http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html</small>
+					</a>
+				</section>
+				<section>
+					<p style="text-align: left;">Download and Install Android Studio</p>
+					<img src="./img/android-studio-download-page.png" height="72%" width="72%" alt="android studio download page" />
+					<a href="https://developer.android.com/studio/index.html">
+						<small>https://developer.android.com/studio/index.html</small>
+					</a>
+				</section>
+			</section>
+			<!-- Slides 6 -->
+			<section>
+				<section>
+					<p style="text-align: left;">Start a new project</p>
+					<img src="./img/android-studio_00-01.png" alt="android studio startup page"/>
+				</section>
+				<section>
+					<img src="./img/android-studio_00-02.png" alt="android studio new project page1"/>
+				</section>
+				<section>
+					<img src="./img/android-studio_00-03.png" alt="android studio new project page2"/>
+				</section>
+				<section>
+					<img src="./img/android-studio_00-04.png" alt="android studio new project page3"/>
+				</section>
+				<section>
+					<img src="./img/android-studio_00-05.png" alt="android studio new project page4"/>
+				</section>
+				<section>
+					<img src="./img/android-studio_00-06.png" alt="android studio new project page5"/>
+				</section>
+			</section>
+			<!-- Slides 7 -->
+			<section>
+				<section>
+					<p style="text-align: left;">Android Studio Overview - Java</p>
+					<img src="./img/android-studio_01-01.png" alt="android studio IDE - java"/>
+				</section>
+				<section>
+					<p style="text-align: left;">Android Studio Overview - Layout</p>					
+					<img src="./img/android-studio_01-02.png" alt="android studio IDE - layout"/>
+				</section>
+				<section>
+					<p style="text-align: left;">Android Studio Overview - Layout (XML)</p>
+					<img src="./img/android-studio_01-03.png" alt="android studio IDE - layout(xml)"/>
+				</section>
+			</section>
+			<!-- Slides 8 -->
+			<section>
+				<section>
+					<p style="text-align: left;">First App: Hello Goodbye</p>
+					<img src="./img/android-studio_02-01.png" alt="first app: layout setting (textview)"/>
+				</section>
+				<section>
+					<img src="./img/android-studio_02-02.png" alt="first app: layout setting (textview - xml)"/>
+				</section>
+				<section>
+						<img src="./img/android-studio_02-03.png" alt="first app: layout setting (button)"/>
+				</section>
+				<section>
+					<img src="./img/android-studio_02-04.png" alt="first app: layout setting (button - xml)"/>
+				</section>
+			</section>
+			<!-- Slides 9 -->
+			<section>
+				<section class="center">
+					<p>Why not build it right now?</p>
+				</section>
+				<section>
+					<p style="text-align: left;">Build App</p>
+					<img src="./img/android-studio_03-01.png" alt="build app (1)"/>					
+				</section>
+				<section>
+						<img src="./img/android-studio_03-02.png" alt="build app (2)"/>					
+				</section>
+				<section>
+						<p style="text-align: left;">Setting > About > click "Build number" 7 times</p>
+						<img src="./img/android-studio_03-03.png" height="50%" width="50%" alt="build app (phone)"/>					
+				</section>
 			</section>
 		</div>
 	</div>
@@ -104,6 +233,11 @@
 				},
 				{
 					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				// Zoom in and out with Alt+click
+				{
+					src: 'plugin/zoom-js/zoom.js',
 					async: true
 				},
 				{
