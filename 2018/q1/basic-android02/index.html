@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Basic Android 02 - 0131@HSNU</title>
+
+  <meta name="description" content="Android 專案架構介紹，0131@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/serif.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/androidstudio.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    .reveal>.slides>section {
+      font-family: 'Open Sans'!important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Open Sans'!important;
+    }
+
+    .reveal>.slides>section p,
+    .reveal>.slides>section ul {
+      line-height: 3.8rem;
+      display: block;
+    }
+
+    .reveal section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .reveal pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover -->
+      <section class="center">
+        <h2>Android 入門 (2)</h2>
+        <small>The Android Project Structure</small>
+      </section>
+      <!-- Slides 1 -->
+      <section>
+        <section>
+          <p style="text-align: left;">The Android Project View</p>
+          <a href="https://developer.android.com/studio/projects/index.html"><img src="./img/android-studio_01-04.png" alt="android project structure"/></a>
+        </section>
+      </section>
+      <!-- Slides 2 -->
+      <section>
+        <section>
+          <p style="text-align: left; font-size: 48px;"><b>1. Android Manifest file</b></p>
+          <ul style="font-size: 32px;">
+            <li>An <code style="color: brown;">AndroidManifest.xml</code> is <span style="color: red;">required</span> for every Android app.</li>
+            <ul>
+              <li>It uses <span style="color: red;">XML</span> to define specific application information.</li>
+            </ul>
+            <li>The Information</li>
+            <ul>
+              <li>Launch icon</li>
+              <li>Application name</li>
+              <li>Application style</li>
+              <li>Filters of intents</li>
+              <li>Hardware requirements</li>
+              etc...
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <p style="text-align: left; font-size: 48px;"><b>1. Android Manifest file</b></p>          
+          <pre>
+            <code class="hljs xml" style="font-size: 18px;" data-trim>
+            <?xml version="1.0" encoding="utf-8"?>
+            <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+              package="tw.kaiyeee.android.firstapp">
+              <application
+                android:allowBackup="true"
+                android:icon="@mipmap/ic_launcher"
+                android:label="@string/app_name"
+                android:roundIcon="@mipmap/ic_launcher_round"
+                android:supportsRtl="true"
+                android:theme="@style/AppTheme">
+                <activity android:name=".MainActivity"> <!-- Activity Name -->
+                  <intent-filter>
+                    <action android:name="android.intent.action.MAIN" /> <!-- App Entry Point -->
+                    <category android:name="android.intent.category.LAUNCHER" />
+                  </intent-filter>
+                </activity>
+              </application>
+            </manifest>
+            </code>
+          </pre>
+        </section>
+      </section>
+      <!-- Slides 3 -->
+      <section>
+        <p style="text-align: left; font-size: 48px;"><b>2. Activity</b></p>
+        <ul style="font-size: 32px;">
+          <li>An app is made up of <span style="color: red;">one or more Activities</span>.</li>
+          <li>Each Activity is represented by a visual interface to the user, called layout, along with source code.</li>          
+          <ul>
+            <li><span style="color: red;">Java class:</span> determining the behavior of the activity, files located in <code style="color: brown;">app/java</code>.</li>
+            <li><span style="color: red;">Layout:</span> determining the view of the activity, files located in <code style="color: brown;">res/layout</code>.</li>
+          </ul>
+        </ul>
+      </section>
+      <!-- Slides 4 -->
+      <section class="center">
+        <p style="font-size: 48px;"><b>3. Resources</b></p>
+      </section>
+      <!-- Slides 5 -->      
+      <section>
+        <section>
+          <p style="text-align: left; font-size: 48px;"><b>3.1 Drawable</b></p>
+          <ul style="font-size: 32px;">
+            <li>Drawable resources are <span style="color: red;">image files</span>.</li>
+            <li>The most common drawable resource used is <code style="color: brown;">.png</code> file.</li>
+            <li><code style="color: brown;">R.drawable.xxx</code>&nbsp;&nbsp;&nbsp;&nbsp;<code style="color: brown;">@drawable/xxx</code></li>
+            <li>Android runs on a variety of devices, so we use <code style="color: brown;">dpi</code> rather than <code style="color: brown;">px</code>.</li>
+            <ul>
+                <li><code style="color: brown;">px:</code> Pixel</li>
+                <li><code style="color: brown;">dp:</code> Density-independent pixel, that is, one physical pixel on a 160-dpi screen</li>
+                <li><code style="color: brown;">dpi:</code> Dots Per Inch</li>
+                \[px = dp \times(dpi \div160)\]
+              </ul>
+          </ul>        
+        </section>
+        <section>
+          <p style="text-align: left; font-size: 48px;"><b>3.1 Drawable</b></p>
+          <ul style="font-size: 32px;">
+            <li>A set of six generalized densities:</li>
+            <ul>
+              <li><s>ldpi (low) ~120dpi / QVGA</s></li>
+              <li>mdpi (medium) ~160dpi / HVGA <code style="color: brown;">(x1.0)</code></li>
+              <li>hdpi (high) ~240dpi / WVGA, FWVGA <code style="color: brown;">(x1.5)</code></li>
+              <li>xhdpi (extra-high) ~320dpi / 720P <code style="color: brown;">(x2.0)</code></li>
+              <li>xxhdpi (extra-extra-high) ~480dpi / 1080p <code style="color: brown;">(x2.6, x3.0)</code></li>
+              <li>xxxhdpi (extra-extra-extra-high) ~640dpi / 4K <code style="color: brown;">(x3.5, x4.0)</code></li>
+            </ul>
+            <li>Device Metrics: <a href="https://material.io/devices/">https://material.io/devices/</a></li>
+          </ul>
+        </section>
+      </section>
+      <!-- Slides 6 -->
+      <section>
+        <p style="text-align: left; font-size: 48px;"><b>3.2 Layout</b></p>
+        <ul style="font-size: 32px;">
+          <li>When a layout appears on the screen, it is managed by an Activity.</li>
+          <li>Two ways to define interface controls:</li>
+          <ul>
+            <li>Declare in <span style="color: red;">XML</span>.</li>
+            <li>Created programmatically at runtime.</li>
+          </ul>
+          <li style="color: red;">It is not recommanded to instantiate elements at runtime due to organization and maintainability!</li>
+          <li><code style="color: brown;">R.layout.xxx</code></li>        
+        </ul>
+      </section>
+      <!-- Slides 7 -->
+      <section>
+        <p style="text-align: left; font-size: 48px;"><b>3.3 Values</b></p>
+        <ul style="font-size: 32px;">
+          <li>It can be:</li>
+          <ul>
+            <li>Strings: <code style="color: brown;">R.string.xxx</code>&nbsp;&nbsp;&nbsp;&nbsp;<code style="color: brown;">@string/xxx</code></li>
+            <li>Colors: <code style="color: brown;">R.color.xxx</code>&nbsp;&nbsp;&nbsp;&nbsp;<code style="color: brown;">@color/xxx</code></li>
+            <li>Styles: <code style="color: brown;">R.style.xxx</code>&nbsp;&nbsp;&nbsp;&nbsp;<code style="color: brown;">@style/xxx</code></li>
+            etc...
+          </ul>
+          <li>Android encourages the separation of functionality and resources.</li>
+          <ul><li>Keeping values separate from functions makes code be more clear and easy to manage.</li></ul>
+        </ul>
+      </section>
+      <!-- Slides 8 -->
+      <section>
+        <p style=" text-align: left; font-size: 48px;"><b>4. Gradle Scripts</b></p>
+        <ul style="font-size: 32px;">
+          <li>The <code style="color: brown;">Gradle Scripts</code> directory stores the application’s build files.</li>
+        </ul>
+        <pre>
+          <code class="hljs" style="font-size: 18px;" data-trim>
+            android {
+            compileSdkVersion 26
+            defaultConfig {
+              applicationId "tw.kaiyeee.android.firstapp"
+              minSdkVersion 21
+              targetSdkVersion 26
+              versionCode 1
+              versionName "1.0"
+              testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            }
+            buildTypes {
+              release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+              }
+            }
+          }
+          </code>
+        </pre>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        {
+          src: 'plugin/markdown/markdown.js'
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true
+        },
+        // Zoom in and out with Alt+click
+        {
+          src: 'plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: 'plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        { src: 'plugin/math/math.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>
