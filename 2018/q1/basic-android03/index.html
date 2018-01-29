@@ -51,6 +51,13 @@
       line-height: 3.8rem;
       display: block;
     }
+    .reveal>.slides>section ul {
+      font-size: 32px;
+    }
+    .title {
+      text-align: left;
+      font-size: 48px;
+    }
 
     .reveal section img {
       background: none;
@@ -71,16 +78,168 @@
       <!-- Cover -->
       <section class="center">
         <h2>Android 入門 (3)</h2>
-        <small>Java code</small>
+        <small>物件導向與 Java</small>
       </section>
       <!-- Slides 1 -->
-      <section class="center">
-          <p style="text-align: left; font-size: 48px;"><code>@Override</code></p>        
+      <section>
+        <!-- Slides 1.0 -->
+        <section>
+          <p class="title">物件導向的特性</p>
+          <ul style="list-style-type: decimal;">
+            <li>Class (類別)</li>
+            <li>Object (物件)</li>
+            <li>Method (方法)</li>
+            <li>Inheritance (繼承)</li>
+            <li>Encapsulation (封裝)</li>
+          </ul>
+        </section>
+        <!-- Slides 1.1 -->
+        <section>
+          <p class="title">1. Class (類別)</p>
+          <ul>
+            <li>定義了一件事/物的抽象特點</li>
+            <li>例如：屬性、行為</li>
+          </ul>
+          <pre>
+            <code class="hljs java" data-trim>
+              class Dog { // 類別
+                // 狗所擁有的屬性(property)
+                protected int legs = 4;
+                protected String name;
+                protected String sound = "woof";
+  
+                public void makeSound() { System.out.println(sound); }
+                public void setName(String n) { name = n; }
+                public void eat(String food) { }
+              }
+            </code>
+          </pre>
+        </section>
+        <!-- Slides 1.2 -->
+        <section>
+          <p class="title">2. Object (物件)</p>
+          <ul>
+            <li>要使用 Class，必須要先實體化 (Instance)</li>
+          </ul>
+          <pre>
+            <code class="hljs java" data-trim>
+              class Dog {
+                protected int legs = 4;
+                protected String sound = "woof";              
+                // ...
+              }
+              Dog goby = new Dog(); // Object
+            </code>
+          </pre>
+        </section>
+        <!-- Slides 1.3 -->
+        <section>
+          <p class="title">3. Method (方法)</p>
+          <ul>
+            <li>一個 Class 可以做的事</li>
+          </ul>
+          <pre>
+            <code class="hljs java" data-trim>
+              class Dog {
+                // ...
+                // Method (方法)
+                public void makeSound() {
+                  System.out.println(sound);
+                }
+                public void setName(String n) { name = n; }
+                public void eat(String food) { }
+              }
+              Dog goby = new Dog();
+              goby.eat("Beef");
+            </code>
+          </pre>
+        </section>
+        <!-- Slides 1.4 --> 
+        <section>
+          <p class="title">4. Inheritance (繼承)</p>
+          <ul>
+            <li>原本(被繼承)的類別：父類別 (Base class)</li>
+            <li>子類別 (Drived class / Subclass)</li>       
+            <li>通常會比父類別更加具體化</li>   
+          </ul>
+          <pre>
+            <code class="hljs java" data-trim>
+              class Animal {
+                protected int age;
+                protected int legs;
+                protected String sound;
+                public Animal(int legs, String sound) {
+                  this.legs = legs;
+                  this.sound = sound;
+                }
+                public void makeSound() {
+                  System.out.println(sound);
+                }
+              }
+              class Dog extends Animal {
+                protected string name;
+                public Dog() { super(4, "Woof"); }
+                public void setName(String n) { name = n; }
+                public void eat(String food) { }
+              }
+              class Bird extends Animal {
+                public Bird() { super(2, "Tweet"); }
+              }
+              Dog goby = new Dog();
+              goby.makeSound(); // Woof
+            </code>
+          </pre>
+        </section>
+        <!-- Slides 1.5 -->
+        <section>
+          <p class="title">5. Encapsulation (封裝)</p>
+          <ul>
+            <li>隱藏了某一方法的具體步驟，取而代之的是透過訊息傳遞機制傳送訊息給它</li>
+            <li>例如：你知道微波爐怎麼啟動，但不需要知道啟動的原理</li>
+          </ul>
+        </section>
       </section>
-      <!-- Slides  -->      
+      <!-- Slides 2 --> 
+      <section>
+        <p class="title"><code>super()</code></p>
+        <ul>
+          <li>用途：</li>
+          <ul>
+            <li>讓子類別呼叫父類別的建構式 (constructor)</li>
+            <li>在子類別透過 <code>super</code> 呼叫那些父類別同名稱的成員</li>
+          </ul>
+        </ul>
+        <pre>
+          <code class="hljs java" data-trim>
+            class People {
+              private int weight;
+              private int height;
+              public People (int weight, int height) {
+                this.weight = weight;
+                this.height = height;
+              }
+              public void showInfo() {
+                System.out.printf("身高：%s\t，體重：%s", this.height, this.weight);
+              }
+            }
+            class Student extends People {
+              private score;
+              public Student(int height, int weight, int score) {
+                super(weight, height);
+                this.score = score;
+              }
+              public showInfo() {
+                super.showInfo();
+                System.out.print("\t成績：%s", this.score);
+              }
+            }
+          </code>
+        </pre>
+      </section>
+      <!-- Slides 3 -->      
       <section>
         <section>
-          <p style="text-align: left; font-size: 48px;">Override (覆寫)</p>
+          <p class="title">Override (覆寫)</p>
           <pre>
             <code class="hljs java" data-trim>
               class Animal {
@@ -106,8 +265,8 @@
           </pre>
         </section>
         <section>
-            <p style="text-align: left; font-size: 48px;"><code>@Override</code></p>
-            <ul style="font-size: 32px;">
+            <p class="title"><code>@Override</code></p>
+            <ul>
               <li>annotation</li>
               <li>可以幫你檢查方法使用是否正確</li>
             </ul>
@@ -127,9 +286,60 @@
             </ul>
         </section>
       </section>
-      <!-- Slides 3 -->
+      <!-- Slides 4 -->
       <section>
-        
+        <section>
+          <p class="title"><code>R.java</code></p>
+          <ul>
+            <li>This is an <span style="color: red;">auto-generated</span> file when you build an Android application.</li>
+            <li>It categorizes the unique IDs into groupings of drawables, strings, and so on.</li>
+            <li>The main purpose of the <code>R.java</code> file is rapid accessibility of resources in the project.</li>
+            <li>As resources are deleted and added to an Android project, this file is updated automatically.</li>
+          </ul>
+        </section>
+        <section>
+          <p class="title"><code>R.java</code></p>
+          <pre>
+            <code class="hljs java" data-trim>
+              /* AUTO-GENERATED FILE.  DO NOT MODIFY.
+              *
+              * This class was automatically generated by the
+              * gradle plugin from the resource data it found. It
+              * should not be modified by hand.
+              */
+              package android.support.constraint;
+              
+              public final class R {
+                public static final class attr {
+                  public static final int constraintSet = 0x7f020055;
+                  public static final int layout_constraintBaseline_creator = 0x7f02008a;
+                  public static final int layout_constraintBaseline_toBaselineOf = 0x7f02008b;
+                  public static final int layout_constraintBottom_creator = 0x7f02008c;
+                  // ...
+                public static final class id {
+                  public static final int all = 0x7f07001c;
+                  public static final int basic = 0x7f07001f;
+                  public static final int chains = 0x7f070025;
+                  public static final int none = 0x7f070048;
+                  // ...
+            </code>
+          </pre>          
+        </section>
+      </section>
+      <!-- Slides 5 -->
+      <section>
+        <p class="title"><code>setContentView(View);</code></p>
+        <ul>
+          <li>This is where you initialize your activity.</li>
+        </ul>
+        <pre>
+          <code class="hljs java" data-trim>
+            protected void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              setContentView(R.layout.activity_main);
+            }
+          </code>
+        </pre>
       </section>
     </div>
   </div>
