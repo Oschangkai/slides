@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Basic Android 03 - 0131@HSNU</title>
+
+  <meta name="description" content="Android 專案架構介紹，0131@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/serif.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/androidstudio.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    .reveal>.slides>section {
+      font-family: 'Open Sans'!important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Open Sans'!important;
+    }
+
+    .reveal>.slides>section p,
+    .reveal>.slides>section ul {
+      line-height: 3.8rem;
+      display: block;
+    }
+
+    .reveal section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .reveal pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover -->
+      <section class="center">
+        <h2>Android 入門 (3)</h2>
+        <small>Java code</small>
+      </section>
+      <!-- Slides 1 -->
+      <section class="center">
+          <p style="text-align: left; font-size: 48px;"><code>@Override</code></p>        
+      </section>
+      <!-- Slides  -->      
+      <section>
+        <section>
+          <p style="text-align: left; font-size: 48px;">Override (覆寫)</p>
+          <pre>
+            <code class="hljs java" data-trim>
+              class Animal {
+                protected int legs = 1;
+                public void getLegs() {
+                  System.out.println(legs*4);
+                }
+              }
+              class Bird extends Animal {
+                public void getLegs() {
+                  System.out.println(legs*2);
+                }
+              }
+              class Main {
+                public static void main(String args[]) {
+                  Animal dog = new Animal();
+                  dog.getLegs(); // 4
+                  Bird aBird = new Bird();
+                  aBird.getLegs(); // 2
+                }
+              }
+            </code>
+          </pre>
+        </section>
+        <section>
+            <p style="text-align: left; font-size: 48px;"><code>@Override</code></p>
+            <ul style="font-size: 32px;">
+              <li>annotation</li>
+              <li>可以幫你檢查方法使用是否正確</li>
+            </ul>
+            <pre>
+              <code class="hljs java" data-trim>
+                class Bird extends Animal {
+                  @Override
+                  public void getLegs() {
+                    System.out.println(legs*2);
+                  }
+                }
+              </code>
+            </pre>
+            <p style="text-align: left; font-size: 16px; line-height: 24px;">題外話</p>
+            <ul style="font-size: 16px; line-height: 24px;">
+              <li>Decorator 與 Annotation 的不同&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://freedomknight.me/annotation-de-er-san-shi/">http://freedomknight.me/annotation-de-er-san-shi/</a></li>
+            </ul>
+        </section>
+      </section>
+      <!-- Slides 3 -->
+      <section>
+        
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        {
+          src: 'plugin/markdown/markdown.js'
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true
+        },
+        // Zoom in and out with Alt+click
+        {
+          src: 'plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: 'plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        { src: 'plugin/math/math.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>
