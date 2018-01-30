@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Android Lab01 - 0131@HSNU</title>
+
+  <meta name="description" content="Android 實作課程(一)，0131@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/serif.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/androidstudio.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    .reveal>.slides>section {
+      font-family: 'Open Sans'!important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Open Sans'!important;
+    }
+
+    .reveal>.slides>section p,
+    .reveal>.slides>section ul {
+      line-height: 3.8rem;
+      display: block;
+    }
+    .reveal>.slides>section ul {
+      font-size: 32px;
+    }
+    .title {
+      text-align: left;
+      font-size: 48px;
+    }
+
+    .reveal section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .reveal pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover -->
+      <section class="center">
+        <h2>Android - Lab (1)</h2>
+        <small>多國語言的 BMI App</small>
+      </section>
+      <!-- Slides 1 -->
+      <section>
+        <p class="title">你將會學到：</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
