@@ -341,6 +341,38 @@
           </code>
         </pre>
       </section>
+      <!-- Slides 6 -->
+      <section>
+        <section>
+          <p class="title">Java 的訪問權限</p>
+          <ul>
+            <li><code>public:</code>&nbsp;&nbsp;&nbsp;大家都可以存取他</li>
+            <li><code>private:</code>&nbsp;&nbsp;&nbsp;只有當前這個 class 可以存取</li>
+            <li><code>protected:</code>&nbsp;&nbsp;&nbsp;只有當前這個 class，和繼承他的 class 可以存取</li>
+            <li><code>default:</code>&nbsp;&nbsp;&nbsp;不寫的時候，預設是同一個 package 中可以存取</li>
+          </ul>
+        </section>
+        <section>
+          <p class="title">Java 的訪問權限</p>          
+          <pre>
+            <code class="hljs bash" data-trim>
+                        | Class | Package | Subclass | Subclass | World
+                        |       |         |(same pkg)|(diff pkg)| 
+            ————————————+———————+—————————+——————————+——————————+————————
+            public      |   +   |    +    |    +     |     +    |   +     
+            ————————————+———————+—————————+——————————+——————————+————————
+            protected   |   +   |    +    |    +     |     +    |         
+            ————————————+———————+—————————+——————————+——————————+————————
+            no modifier |   +   |    +    |    +     |          |    
+            ————————————+———————+—————————+——————————+——————————+————————
+            private     |   +   |         |          |          |    
+            
+            + : accessible
+            blank : not accessible
+            </code>
+          </pre>
+        </section>
+      </section>
     </div>
   </div>
 
