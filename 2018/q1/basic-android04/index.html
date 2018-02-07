@@ -109,156 +109,150 @@
       </section>
       <!-- Slides 3 -->
       <section>
-        <!-- Slides 3.1 -->
-        <section>
-          <p class="title">M - V - X ?</p>
-          <ul>
-            <li>MVC</li>
-            <li>MVP</li>
-            <li>MVVM</li>
-          </ul>
-        </section>  
-        <!-- Slides 3.2 -->
-        <section>
-          <p class="title">MVC</p>
-          <ul>
-            <li>Model</li>
-            <ul>
-              <li>資料：資料庫</li>
-              <li>狀態：畫面上的值</li>
-              <li>邏輯運算：單位換算、資料格式</li>
-            </ul>
-            <li>View</li>
-            <ul>
-              <li>畫面的呈現</li>
-              <li>又或是說，邏輯結果</li>
-            </ul>
-            <li>Controller</li>
-            <ul>
-              <li>Model 和 View 的溝通橋樑</li>
-            </ul>
-          </ul>
-        </section>
-        <!-- Slides 3.3 -->
-        <section>
-          <p class="title">MVP</p>
-          <ul>
-            <li>Model</li>
-            <li>View</li>
-            <li>Presenter</li>
-            <ul>
-              <li>不需要一邊處理 UI 的事情，一邊忙著執行各種動作</li>
-            </ul>
-          </ul>
-        </section>
-        <!-- Slides 3.4 -->
-        <section>
-          <p class="title">MVVM</p>
-          <ul>
-            <li>Model</li>
-            <li>View</li>
-            <li>ViewModel</li>
-          </ul>
-        </section>
-      </section>
+        <p class="title">M - V - X ?</p>
+        <ul>
+          <li>MVC</li>
+          <li>MVP</li>
+          <li>MVVM</li>
+        </ul>
+      </section>  
       <!-- Slides 4 -->
+      <section>
+        <p class="title">MVC</p>
+        <ul>
+          <li>Model</li>
+          <ul>
+            <li>資料：資料庫</li>
+            <li>狀態：畫面上的值</li>
+            <li>邏輯運算：單位換算、資料格式</li>
+          </ul>
+          <li>View</li>
+          <ul>
+            <li>畫面的呈現</li>
+            <li>又或是說，邏輯結果</li>
+          </ul>
+          <li>Controller</li>
+          <ul>
+            <li>Model 和 View 的溝通橋樑</li>
+          </ul>
+        </ul>
+      </section>
+      <!-- Slides 5 -->
+      <section>
+        <p class="title">MVP</p>
+        <ul>
+          <li>Model</li>
+          <li>View</li>
+          <li>Presenter</li>
+          <ul>
+            <li>不需要一邊處理 UI 的事情，一邊忙著執行各種動作</li>
+          </ul>
+        </ul>
+      </section>
+      <!-- Slides 6 -->
+      <section>
+        <p class="title">MVVM</p>
+        <ul>
+          <li>Model</li>
+          <li>View</li>
+          <li>ViewModel</li>
+        </ul>
+      </section>
+      <!-- Slides 7 -->
       <section class="center">
         <p style="font-size: 48px;"><b>Activity Lifecycle</b></p>
         <small style="font-size: 14px;"><a href="https://developer.android.com/guide/components/activities/activity-lifecycle.html">developer.android.com</a></small>
       </section>
-      <!-- Slides 5 -->
+      <!-- Slides 8 -->
       <section>
-        <!-- Slides 5.1 -->
-        <section>
-          <p class="title">Activity Lifecycle - Starts</p>
-          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        <p class="title">Activity Lifecycle - Starts</p>
+        <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        <ul>
+          <li><code>onCreate()</code></li>
           <ul>
-            <li><code>onCreate()</code></li>
-            <ul>
-              <li>Called when the activity is first created.</li>
-            </ul>
-            <li><code>onStart()</code></li>
-            <ul>
-              <li>Called when the activity is becoming visible to the user.</li>
-            </ul>
-            <li><code>onResume()</code></li>
-            <ul>
-              <li>Called when the activity begins interacting with user.</li>
-            </ul>
+            <li>Called when the activity is first created.</li>
           </ul>
-        </section>
-        <!-- Slides 5.2 -->
-        <section>
-          <p class="title">Activity Lifecycle - Running</p>
-          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+          <li><code>onStart()</code></li>
           <ul>
-            <li>
-              If an activity <span style="color: crimson;">in the foreground of the screen</span> (at the top of the stack), 
-              it is active or running.
-            </li>
-            <li><code>onPause()</code></li>
-            <ul>
-              <li>The activity is no longer visible. Commit unsaved changes.</li>
-            </ul>
+            <li>Called when the activity is becoming visible to the user.</li>
           </ul>
-        </section>
-        <!-- Slides 5.3 -->
-        <section>
-          <p class="title">Activity Lifecycle - Paused</p>
-          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+          <li><code>onResume()</code></li>
           <ul>
-            <li>
-              If an activity has lost focus but is still visible (that is, 
-              a new non-full-sized or transparent activity has focus on top of your activity), 
-              it is paused.
-            </li>
-            <li>
-              A paused activity is completely alive, 
-              but <span style="color: crimson;">can be killed by the system in extreme low memory situations</span>.
-            </li>
-            <li><code>onStop()</code></li>
-            <ul>
-              <li>The activity is no longer visible beacuse another activity is active.</li>
-            </ul>
+            <li>Called when the activity begins interacting with user.</li>
           </ul>
-        </section>
-        <!-- Slides 5.4 -->
-        <section>
-          <p class="title">Activity Lifecycle - Stopped</p>
-          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        </ul>
+      </section>
+      <!-- Slides 9 -->
+      <section>
+        <p class="title">Activity Lifecycle - Running</p>
+        <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        <ul>
+          <li>
+            If an activity <span style="color: crimson;">in the foreground of the screen</span> (at the top of the stack), 
+            it is active or running.
+          </li>
+          <li><code>onPause()</code></li>
           <ul>
-            <li>If an activity is completely obscured by another activity, it is stopped.</li>
-            <li>
-                It still retains all state and member information, 
-                however, it is no longer visible to the user and it <span style="color: crimson;">will often be killed by
-                the system when memory is needed elsewhere</span>.
-            </li>
-            <li><code>onDestroy()</code></li>
-            <ul>
-              <li>The final call before the activity is destroyed.</li>
-            </ul>
+            <li>The activity is no longer visible. Commit unsaved changes.</li>
           </ul>
-        </section>
-        <!-- Slides 5.5 -->
-        <section>
-          <p class="title">Activity Lifecycle - Destroyed</p>
-          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        </ul>
+      </section>
+      <!-- Slides 10 -->
+      <section>
+        <p class="title">Activity Lifecycle - Paused</p>
+        <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        <ul>
+          <li>
+            If an activity has lost focus but is still visible (that is, 
+            a new non-full-sized or transparent activity has focus on top of your activity), 
+            it is paused.
+          </li>
+          <li>
+            A paused activity is completely alive, 
+            but <span style="color: crimson;">can be killed by the system in extreme low memory situations</span>.
+          </li>
+          <li><code>onStop()</code></li>
           <ul>
-            <li>
-              If an activity is paused or stopped, 
-              the system can drop the activity from memory by either asking it to finish, 
-              or simply killing its process.
-            </li>
-            <li>
-              When it is displayed again to the user, 
-              it must be completely restarted and restored to its previous state.
-            </li>
-          </ul>          
-        </section>
-        <!-- Slides 5.5 -->
-        <section>
-          <img src="https://developer.android.com/guide/components/images/activity_lifecycle.png" alt="official image of illustration of the activity lifecycle" />
-        </section>
+            <li>The activity is no longer visible beacuse another activity is active.</li>
+          </ul>
+        </ul>
+      </section>
+      <!-- Slides 11 -->
+      <section>
+        <p class="title">Activity Lifecycle - Stopped</p>
+        <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        <ul>
+          <li>If an activity is completely obscured by another activity, it is stopped.</li>
+          <li>
+              It still retains all state and member information, 
+              however, it is no longer visible to the user and it <span style="color: crimson;">will often be killed by
+              the system when memory is needed elsewhere</span>.
+          </li>
+          <li><code>onDestroy()</code></li>
+          <ul>
+            <li>The final call before the activity is destroyed.</li>
+          </ul>
+        </ul>
+      </section>
+      <!-- Slides 12 -->
+      <section>
+        <p class="title">Activity Lifecycle - Destroyed</p>
+        <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+        <ul>
+          <li>
+            If an activity is paused or stopped, 
+            the system can drop the activity from memory by either asking it to finish, 
+            or simply killing its process.
+          </li>
+          <li>
+            When it is displayed again to the user, 
+            it must be completely restarted and restored to its previous state.
+          </li>
+        </ul>
+      </section>
+      <!-- Slides 13 -->
+      <section>
+        <img src="https://developer.android.com/guide/components/images/activity_lifecycle.png" alt="official image of illustration of the activity lifecycle" />
       </section>
     </div>
   </div>
