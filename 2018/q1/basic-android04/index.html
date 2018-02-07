@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Basic Android 04 - 0209@HSNU</title>
+
+  <meta name="description" content="MVX 架構與 Activity 生命週期，0209@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/league.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/androidstudio.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    .reveal>.slides>section {
+      font-family: 'Open Sans'!important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Open Sans'!important;
+    }
+
+    .reveal>.slides>section p,
+    .reveal>.slides>section ul {
+      line-height: 5rem;
+      display: block;
+    }
+    .reveal>.slides>section ul {
+      font-size: 32px;
+    }
+    .title {
+      text-align: left;
+      font-size: 48px;
+    }
+
+    .reveal section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .reveal pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover -->
+      <section class="center">
+        <h2>Android 入門 (4)</h2>
+        <small>MVX 架構、Activity 生命週期</small>
+      </section>
+      <!-- Slides 1 -->
+      <section>
+        <section>
+          <p class="title">請試著想像...</p>
+          <ul>
+            <li>你的專案越來越龐大</li>
+            <li>程式碼越寫越多 <small style="vertical-align:text-bottom; color: gray;">可能一個檔案就有幾千行了...</small></li>
+            <li>找不到 function 寫在哪裡</li>
+            ......
+            <p style="color: crimson; font-size: 58px;"></li>好亂啊！！</p>
+          </ul>
+        </section>
+        <section class="center">
+          <p>於是，你決定 <span style="color: darkorange; font-size: 76px;"> 分類整裡！</span></p>
+        </section>
+      </section>
+      <!-- Slides 2 -->
+      <section>
+        <!-- Slides 2.1 -->
+        <section class="center">
+          <p>M - V - X</p>
+        </section>
+        <!-- Slides 2.2 -->
+        <section>
+          <p class="title">M - V - X ?</p>
+          <ul>
+            <li>MVC</li>
+            <li>MVP</li>
+            <li>MVVM</li>
+          </ul>
+        </section>  
+        <!-- Slides 2.3 -->
+        <section>
+          <p class="title">MVC</p>
+          <ul>
+            <li>Model</li>
+            <ul>
+              <li>資料：資料庫</li>
+              <li>狀態：畫面上的值</li>
+              <li>邏輯運算：單位換算、資料格式</li>
+            </ul>
+            <li>View</li>
+            <ul>
+              <li>畫面的呈現</li>
+              <li>又或是說，邏輯結果</li>
+            </ul>
+            <li>Controller</li>
+            <ul>
+              <li>Model 和 View 的溝通橋樑</li>
+            </ul>
+          </ul>
+        </section>
+        <!-- Slides 2.4 -->
+        <section>
+          <p class="title">MVP</p>
+          <ul>
+            <li>Model</li>
+            <li>View</li>
+            <li>Presenter</li>
+            <ul>
+              <li>不需要一邊處理 UI 的事情，一邊忙著執行各種動作</li>
+            </ul>
+          </ul>
+        </section>
+        <!-- Slides 2.5 -->
+        <section>
+          <p class="title">MVVM</p>
+          <ul>
+            <li>Model</li>
+            <li>View</li>
+            <li>ViewModel</li>
+          </ul>
+        </section>
+      </section>
+      <!-- Slides 3 -->
+      <section>
+        <!-- Slides 3.1 -->
+        <section class="center">
+          <p>Activity Lifecycle</p>
+        </section>
+        <!-- Slides 3.2 -->
+        <section>
+          <p class="title">Activity Lifecycle</p>
+          <img src="./img/activity-lifecycle_01.png" height="500" alt="activity lifecycle diagram" />
+        </section>
+      </section>
+      <!-- Slides  -->
+      <section>
+        <p class="title">參考資料</p>
+        <ul>
+          <li>M - V - X</li>
+          <ul>
+            <li><a href="https://windsuzu.github.io/learn-android-architecture-pattern/">
+              https://windsuzu.github.io/learn-android-architecture-pattern/
+            </a></li>
+            <li><a href="https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/">
+              https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/
+            </a></li>
+          </ul>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
