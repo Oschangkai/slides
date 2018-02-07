@@ -46,7 +46,7 @@
       font-family: 'Open Sans'!important;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6, b, p {
       font-family: 'Open Sans'!important;
     }
 
@@ -101,12 +101,15 @@
         </section>
       </section>
       <!-- Slides 2 -->
+      <section class="center">
+        <p style="font-size: 48px;"><b>M - V - X</b></p>
+        <small style="font-size: 14px;"><a href="https://windsuzu.github.io/learn-android-architecture-pattern/">windsuzu.github.io</a></small>
+        <small style="font-size: 14px;">, </small>
+        <small style="font-size: 14px;"><a href="https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/">academy.realm.io</a></small>
+      </section>
+      <!-- Slides 3 -->
       <section>
-        <!-- Slides 2.1 -->
-        <section class="center">
-          <p>M - V - X</p>
-        </section>
-        <!-- Slides 2.2 -->
+        <!-- Slides 3.1 -->
         <section>
           <p class="title">M - V - X ?</p>
           <ul>
@@ -115,7 +118,7 @@
             <li>MVVM</li>
           </ul>
         </section>  
-        <!-- Slides 2.3 -->
+        <!-- Slides 3.2 -->
         <section>
           <p class="title">MVC</p>
           <ul>
@@ -136,7 +139,7 @@
             </ul>
           </ul>
         </section>
-        <!-- Slides 2.4 -->
+        <!-- Slides 3.3 -->
         <section>
           <p class="title">MVP</p>
           <ul>
@@ -148,7 +151,7 @@
             </ul>
           </ul>
         </section>
-        <!-- Slides 2.5 -->
+        <!-- Slides 3.4 -->
         <section>
           <p class="title">MVVM</p>
           <ul>
@@ -158,32 +161,104 @@
           </ul>
         </section>
       </section>
-      <!-- Slides 3 -->
-      <section>
-        <!-- Slides 3.1 -->
-        <section class="center">
-          <p>Activity Lifecycle</p>
-        </section>
-        <!-- Slides 3.2 -->
-        <section>
-          <p class="title">Activity Lifecycle</p>
-          <img src="./img/activity-lifecycle_01.png" height="500" alt="activity lifecycle diagram" />
-        </section>
+      <!-- Slides 4 -->
+      <section class="center">
+        <p style="font-size: 48px;"><b>Activity Lifecycle</b></p>
+        <small style="font-size: 14px;"><a href="https://developer.android.com/guide/components/activities/activity-lifecycle.html">developer.android.com</a></small>
       </section>
-      <!-- Slides  -->
+      <!-- Slides 5 -->
       <section>
-        <p class="title">參考資料</p>
-        <ul>
-          <li>M - V - X</li>
+        <!-- Slides 5.1 -->
+        <section>
+          <p class="title">Activity Lifecycle - Starts</p>
+          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
           <ul>
-            <li><a href="https://windsuzu.github.io/learn-android-architecture-pattern/">
-              https://windsuzu.github.io/learn-android-architecture-pattern/
-            </a></li>
-            <li><a href="https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/">
-              https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/
-            </a></li>
+            <li><code>onCreate()</code></li>
+            <ul>
+              <li>Called when the activity is first created.</li>
+            </ul>
+            <li><code>onStart()</code></li>
+            <ul>
+              <li>Called when the activity is becoming visible to the user.</li>
+            </ul>
+            <li><code>onResume()</code></li>
+            <ul>
+              <li>Called when the activity begins interacting with user.</li>
+            </ul>
           </ul>
-        </ul>
+        </section>
+        <!-- Slides 5.2 -->
+        <section>
+          <p class="title">Activity Lifecycle - Running</p>
+          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+          <ul>
+            <li>
+              If an activity <span style="color: crimson;">in the foreground of the screen</span> (at the top of the stack), 
+              it is active or running.
+            </li>
+            <li><code>onPause()</code></li>
+            <ul>
+              <li>The activity is no longer visible. Commit unsaved changes.</li>
+            </ul>
+          </ul>
+        </section>
+        <!-- Slides 5.3 -->
+        <section>
+          <p class="title">Activity Lifecycle - Paused</p>
+          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+          <ul>
+            <li>
+              If an activity has lost focus but is still visible (that is, 
+              a new non-full-sized or transparent activity has focus on top of your activity), 
+              it is paused.
+            </li>
+            <li>
+              A paused activity is completely alive, 
+              but <span style="color: crimson;">can be killed by the system in extreme low memory situations</span>.
+            </li>
+            <li><code>onStop()</code></li>
+            <ul>
+              <li>The activity is no longer visible beacuse another activity is active.</li>
+            </ul>
+          </ul>
+        </section>
+        <!-- Slides 5.4 -->
+        <section>
+          <p class="title">Activity Lifecycle - Stopped</p>
+          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+          <ul>
+            <li>If an activity is completely obscured by another activity, it is stopped.</li>
+            <li>
+                It still retains all state and member information, 
+                however, it is no longer visible to the user and it <span style="color: crimson;">will often be killed by
+                the system when memory is needed elsewhere</span>.
+            </li>
+            <li><code>onDestroy()</code></li>
+            <ul>
+              <li>The final call before the activity is destroyed.</li>
+            </ul>
+          </ul>
+        </section>
+        <!-- Slides 5.5 -->
+        <section>
+          <p class="title">Activity Lifecycle - Destroyed</p>
+          <img src="./img/activity-lifecycle_01.png" style="float: right;" height="550" alt="activity lifecycle diagram" />
+          <ul>
+            <li>
+              If an activity is paused or stopped, 
+              the system can drop the activity from memory by either asking it to finish, 
+              or simply killing its process.
+            </li>
+            <li>
+              When it is displayed again to the user, 
+              it must be completely restarted and restored to its previous state.
+            </li>
+          </ul>          
+        </section>
+        <!-- Slides 5.5 -->
+        <section>
+          <img src="https://developer.android.com/guide/components/images/activity_lifecycle.png" alt="official image of illustration of the activity lifecycle" />
+        </section>
       </section>
     </div>
   </div>
