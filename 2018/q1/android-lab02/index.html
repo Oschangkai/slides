@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Android Lab02 - 0209@HSNU</title>
+
+  <meta name="description" content="Android 實作課程(二)，0209@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/league.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/androidstudio.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112746234-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-112746234-2');
+  </script>
+
+  <style>
+    .reveal>.slides>section {
+      font-family: 'Open Sans'!important;
+    }
+
+    h1, h2, h3, h4, h5, h6, b, p {
+      font-family: 'Open Sans'!important;
+    }
+
+    .reveal>.slides>section p,
+    .reveal>.slides>section ul {
+      line-height: 3.8rem;
+      display: block;
+    }
+    .reveal>.slides>section ul {
+      font-size: 32px;
+    }
+    .title {
+      text-align: left;
+      font-size: 48px;
+    }
+
+    .reveal section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .reveal pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover -->
+      <section class="center">
+        <h2>Android - Lab (2)</h2>
+        <small>擁有歡迎畫面的 BMI App</small>
+      </section>
+      <!-- Slides 1 -->
+      <section>
+        <p class="title">你將會學會：</p>
+        <ul>
+          <li>使用第三方 Package (以 Github 為例)</li>          
+          <li>使用 Alert Dialog</li>
+          <li><code>finish()</code> 的用途</li>
+          <li>手動 Override function</li>
+        </ul>
+      </section>
+      <!-- Slides 2 -->      
+      <section>
+        <section>
+          <p class="title">AppIntro</p>
+          <ul>
+            <li><a href="https://github.com/apl-devs/AppIntro">https://github.com/apl-devs/AppIntro</a></li>
+          </ul>
+          <img src="./img/android-lab02_00-01.png" alt="appintro github page" height="540" /> 
+        </section>
+        <section>
+          <p class="title">JitPack</p>
+          <ul>
+            <li><a href="https://jitpack.io">https://jitpack.io</a></li>
+          </ul>
+          <img src="./img/android-lab02_00-02.png" alt="JitPack page" height="540" /> 
+        </section>
+      </section>
+      <!-- Slides 3 -->
+      <section>
+        <section>
+          <p class="title">Add the JitPack repository to your build file</p>
+          <img src="./img/android-lab02_01-01.png" alt="add a JitPack repository to build file" />  
+        </section>
+        <section>
+          <p class="title">Add the dependency</p>
+          <img src="./img/android-lab02_01-02.png" alt="add the dependency" />            
+        </section>
+      </section>
+      <!-- Slides 4 -->
+      <section>
+        <section>
+          <p class="title">Create a new Activity that extends AppIntro</p>
+          <img src="./img/android-lab02_02-01.png" alt="create new class(1)" />
+        </section>
+        <section>
+          <p class="title">Create a new Activity that extends AppIntro</p>
+          <img src="./img/android-lab02_02-02.png" alt="create new class(2)" />
+        </section>
+      </section>
+      <!-- Slides 5 -->
+      <section>
+        <p class="title">Construct Java code</p>
+        <img src="./img/android-lab02_03-01.png" alt="construct java code" />
+      </section>
+      <!-- Slides 6 -->
+      <section>
+        <p class="title">Declare the activity in <code>AndroidManifest.xml</code></p>
+        <img src="./img/android-lab02_03-02.png" alt="declare in manifest" />        
+      </section>
+      <!-- Slides 7 -->
+      <section>
+        <p class="title">Set Entry Point in <code>MainActivity.java</code></p>
+        <img src="./img/android-lab02_03-03.png" alt="set entry point" />
+      </section>
+      <!-- Slides 8 -->
+      <section>
+        <p class="title">Set <code>onDonePressed()</code></p>
+        <img src="./img/android-lab02_04-01.png" alt="create bmi class" />
+      </section>
+      <!-- Slides 9 -->
+      <section>
+        <p class="title">Show a Confirm Dialog Before Exit</p>
+        <img src="./img/android-lab02_05-01.png" alt="create an confirm dialog" />
+      </section>
+      <!-- Slides 10 -->
+      <section>
+        <p class="title">成品</p>
+        <ul>
+          <li><a href="https://github.com/Oschangkai/2018Android-at-HSNU">https://github.com/Oschangkai/2018Android-at-HSNU</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
