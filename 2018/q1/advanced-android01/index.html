@@ -65,8 +65,7 @@
       text-align: left;
       font-size: 48px;
     }
-    .reveal>.slides>section h3, 
-    .reveal>.slides>section p {
+    .reveal>.slides>section h3 {
       text-align: left;
     }
 
@@ -93,16 +92,103 @@
       </section>
       <!-- Slides 1 -->
       <section>
-        
+        <p class="title">ListView 與 Adapter</p>
+        <ul>
+          <li><b>資料(Data)</b> 是要呈現的內容</li>
+          <li><b>ListView</b> 是清單顯示的一個元件，可以說是呈現結果的容器</li>
+          <li>資料要怎麼被擺在 UI 上，就是 <b>Adapter</b> 的工作了！</li>
+          <li> Data<b>s</b>&nbsp;&nbsp;&nbsp;-->&nbsp;&nbsp;&nbsp;Adapter&nbsp;&nbsp;&nbsp;-->&nbsp;&nbsp;&nbsp;ListView</li>
+        </ul>
+        <p style="text-align: left; font-size: 22px; padding-top: 13em;">
+          資料來源：
+          <a href="https://codingdailyblog.wordpress.com/2017/06/21/android-%E5%AE%A2%E8%A3%BD%E5%8C%96listview/">這裡</a>
+        </p>
       </section>
-      <!-- Slides  -->
+      <!-- Slides 2 -->
+      <section>
+        <p class="title">BaseAdapter 主要的 function</p>
+        <ul>
+          <li><code>getCount()</code> -- 取得資料數量</li>
+          <li><code>getItem()</code> -- 依照位置取得資料</li>
+          <li><code>getView()</code> -- 資料與畫面的連接處</li>
+          <li>
+            其中 <code>getView()</code> 最重要！<br />
+            畫面複雜時，通常會寫一個 <code>ViewHolder</code>，讓程式更容易讀
+          </li>
+        </ul>
+      </section>
+      <!-- Slides 3 -->
+      <section>
+        <p class="title">ListView 主要的工作原理</p>
+        <ul>
+          <li>ListView 對 List 中每一個項目(item)，要求 Adapter 給他一個畫面 (<code>getView()</code>)</li>
+          <li>一個新的畫面被顯示</li>
+        </ul>
+      </section>
+      <!-- Slides 4 -->
+      <section class="center">
+        <p>如果現在資料有 1,000,000 筆</p>
+        <p>Android 會一次幫你畫出全部的資料嗎？</p>
+      </section>
+      <!-- Slides 5 -->
+      <section class="center">
+        <h2 style="color: crimson;">不！</h2>
+        <p>記憶體早就不夠了吧！</p>
+      </section>
+      <!-- Slides 6 -->
+      <section class="center">
+        <p>所以 Android 有一個東西，叫做 <span style="color: crimson;">Recycler</span> 的機制，幫你處理這件事！</p>
+      </section>
+      <!-- Slides 7 -->
+      <section class="center">
+        <img src="http://img.my.csdn.net/uploads/201304/18/1366248240_7944.jpg" />
+      </section>
+      <!-- Slides 8 -->
+      <section>
+        <p class="title"><code>getView()</code> 運作機制</p>
+        <ul>
+          <li>1,000,000 筆資料中，只有可見的部分被放入記憶體中，其他的在 Recycler 裡</li>
+          <li>ListView 先拿一個第一種 (type1) 畫面，並且此時的 convertView 在 <code>getView()</code> 中為空 (null)</li>
+          <li>當 item1 被滑出螢幕了，並且有一個新的項目從底下被滑出來時，ListView 會再拿一個 type1 畫面。此時 convertView 的值 = item1</li>
+          <li>只要 item1 又被滑入螢幕，convertView 會丟出來，不用從新畫一個新的畫面，減少了不必要的工作</li>
+        </ul>
+      </section>
+      <!-- Slides 8 -->
+      <section>
+        <p class="title">ViewHolder 的作用？</p>
+        <ul>
+          <li>將需要被快取 (cache) 的 View 封裝好， convertView 的 setTag 將這些快取存起來，供下一次存取用</li>
+          <li>當畫面越來越複雜時， viewHolder 就有明顯的差別了</li>
+          <li>畫面不複雜時，也有效能上的增強</li>
+        </ul>
+      </section>
+      <!-- Slides 9 -->
+      <section>
+        <p class="title">Inflater vs <code>findViewById()</code>？</p>
+        <ul>
+          <li>Inflater 英文翻譯為「膨脹」。在這裡，我們姑且看作「擴展」、「延伸」</li>
+          <li>與 <code>findViewById()</code> 不同的是，Inflater 是用來找 layout 下的 xml 版面配置檔，並且實體化</li>
+          <li>但 <code>findViewById()</code> 是用來找 xml 中某個 widget (例如：TextView, Button)</li>
+        </ul>
+      </section>
+      <!-- Slides 10 -->
+      <section>
+        <p class="title">參考資料</p>
+        <ul>
+          <li>getView()的原理：http://www.cnblogs.com/xiaowenji/archive/2010/12/08/1900579.html</li>
+          <li>getView()的原理：http://blog.csdn.net/harvic880925/article/details/25335957</li>
+          <li>ViewHolder：http://www.cnblogs.com/xiangtailiang/p/3379543.html</li>
+          <li>Inflater：http://www.cnblogs.com/yourancao520/archive/2012/04/06/2434745.html</li>
+        </ul>
+      </section>
+      <!-- Slides 11 -->
       <section>
         <h3>最後...</h3>
-        <p style="font-size: 28px; line-height: 42px; padding-top: 30px;">程式碼可以在以下網址找到：
+        <p style="font-size: 28px; line-height: 42px; padding-top: 30px; text-align: left;">程式碼可以在以下網址找到：
           <br />
           <a href="https://github.com/Oschangkai/2018Android-at-HSNU">https://github.com/Oschangkai/2018Android-at-HSNU</a>
         </p>
-        <p style="font-size: 28px; line-height: 42px;">
+        <p style="font-size: 28px; line-height: 42px; text-align: left;">
           以下是所有的上課簡報：
           <br />
           <a href="https://slides.kaiyeee.tw/2018/q1/basic-android01/">https://slides.kaiyeee.tw/2018/q1/basic-android01/</a>
@@ -111,17 +197,17 @@
           <a href="https://slides.kaiyeee.tw/2018/q1/basic-android04/">https://slides.kaiyeee.tw/2018/q1/basic-android04/</a>
         </p>
       </section>
-      <!-- Slides  -->
+      <!-- Slides 12 -->
       <section>
         <h3>最後的最後...</h3>
-        <p style="font-size: 28px; line-height: 42px; padding-top: 30px;">
+        <p style="font-size: 28px; line-height: 42px; padding-top: 30px; text-align: left;">
           以下是所有的實作簡報：
           <br />
           <a href="https://slides.kaiyeee.tw/2018/q1/android-lab01/">https://slides.kaiyeee.tw/2018/q1/android-lab01/</a>
           <a href="https://slides.kaiyeee.tw/2018/q1/android-lab02/">https://slides.kaiyeee.tw/2018/q1/android-lab02/</a>
           <a href="https://slides.kaiyeee.tw/2018/q1/android-lab03/">https://slides.kaiyeee.tw/2018/q1/android-lab03/</a>
         </p>
-        <p style="font-size: 22px; line-height: 44px; padding-top: 72px;">
+        <p style="font-size: 22px; line-height: 44px; padding-top: 72px; text-align: left;">
           <span style="font-size: 36px;">我的聯絡方式...</span>
           <br />
           Email:&nbsp;&nbsp;<a href="mailto://oschangakai@gmail.com">oschangakai@gmail.com</a>
