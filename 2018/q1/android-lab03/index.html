@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Android Lab03 - 0212@HSNU</title>
+
+  <meta name="description" content="Android 實作課程(三)，0212@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/sky.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/androidstudio.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112746234-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-112746234-2');
+  </script>
+
+  <style>
+    .reveal>.slides>section {
+      font-family: 'Open Sans', "Helvetica Neue"!important;
+    }
+
+    h1, h2, h3, h4, h5, h6, b, p {
+      font-family: 'Open Sans', "Helvetica Neue"!important;
+      letter-spacing: 0em!important;
+      text-transform: none!important;
+    }
+
+    .reveal>.slides>section p,
+    .reveal>.slides>section ul {
+      line-height: 3.8rem;
+      display: block;
+    }
+    .reveal>.slides>section ul {
+      font-size: 32px;
+    }
+    .title {
+      text-align: left;
+      font-size: 48px;
+    }
+
+    .reveal section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .reveal pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Cover -->
+      <section class="center">
+        <h2>Android - Lab (3)</h2>
+        <small>能儲存記錄的 BMI App</small>
+      </section>
+      <!-- Slides 1 -->
+      <section>
+        <p class="title">你將會學會</p>
+        <ul>
+          <li>切換畫面</li>
+          <li>讀寫檔案</li>
+          <li>使用 try catch</li>
+          <li>客製化清單</li>
+          <li>設定 Activity Bar 標題文字</li>
+          <li>設定空畫面</li>
+          <li>字串分割</li>
+        </ul>
+      </section>
+      <!-- Slides 2 -->
+      <section>
+        <section>
+          <p class="title">專案說明</p>
+          <ul>
+            <li>
+              畫面上將會有兩個按鈕：<br />
+              計算鈕按下去會計算 BMI 並寫檔 <br />
+              Show 的按鈕，按下去後會以 ListView 的方式顯示資料
+            </li>
+            <li>將會做一個客製化的 ListView，顯示每一筆資料</li>
+            <li>檔案會儲存在外部空間 (例如：記憶卡、虛擬外部空間)</li>
+          </ul>
+        </section>
+        <section>
+          <p class="title">成果圖</p>
+          <img src="./img/android-lab03_05-01.png" height="540" alt="app screenshot (1)" />
+        </section>
+        <section>
+          <p class="title">成果圖</p>
+          <img src="./img/android-lab03_05-02.png" height="540" alt="app screenshot (2)" />
+        </section>
+      </section>
+      <!-- Slides 3 -->
+      <section>
+        <section>
+          <p class="title">1. 創建一個 BmiData Class，方便我們存資料</p>
+          <img src="./img/android-lab03_00-01.png" alt="create a bmidata class(1)" />
+        </section>
+        <section>
+          <p class="title">1. 創建一個 BmiData Class，方便我們存資料</p>
+          <img src="./img/android-lab03_00-02.png" alt="create a bmidata class(2)" />
+        </section>
+        <section>
+          <p class="title">1. 創建一個 BmiData Class，方便我們存資料</p>
+          <img src="./img/android-lab03_00-03.png" alt="finish bmidata class" />
+        </section>
+      </section>
+      <!-- Slides 4 -->
+      <section>
+        <section>
+          <p class="title">2. 讓手機可以將資料寫入檔案</p>
+          <ul><li>新增一個按鈕，讓手機可以跳轉資料清單頁面</li></ul>
+          <img src="./img/android-lab03_01-01.png" height="540" alt="add new button showing page" />          
+        </section>
+        <section>
+          <p class="title">2. 讓手機可以將資料寫入檔案</p>
+          <ul><li>完成寫檔程式碼</li></ul>
+          <img src="./img/android-lab03_01-02.png" height="540" alt="write file java code" />          
+        </section>
+        <section>
+          <p class="title">2. 讓手機可以將資料寫入檔案</p>
+          <ul><li>取得外部空間讀取/寫入權限</li></ul>
+          <img src="./img/android-lab03_01-03.png" height="540" alt="ask for permission" />
+        </section>
+      </section>
+      <!-- Slides 5 -->
+      <section>
+        <section>
+          <p class="title">3. 新增清單畫面</p>
+          <ul><li>新增 Activity</li></ul>
+          <img src="./img/android-lab03_02-01.png" height="540" alt="add new activity(1)" />
+        </section>
+        <section>
+          <p class="title">3. 新增清單畫面</p>
+          <ul><li>新增 Activity</li></ul>
+          <img src="./img/android-lab03_02-02.png" height="540" alt="add new activity(2)" />
+        </section>
+        <section>
+          <p class="title">3. 新增清單畫面</p>
+          <ul>
+            <li>
+              完成清單畫面、空畫面元件&nbsp;&nbsp;&nbsp;
+              <a href="https://raw.githubusercontent.com/Oschangkai/2018Android-at-HSNU/master/Android_lab03/app/src/main/res/layout/activity_bmi_data_list.xml">
+                點我複製
+              </a>
+            </li>
+          </ul>
+          <img src="./img/android-lab03_02-03.png" height="540" alt="finish list activity" />
+        </section>
+        <section>
+          <p class="title">3. 新增清單畫面</p>
+          <ul><li>設定標題文字、指定空畫面</li></ul>
+          <img src="./img/android-lab03_02-04.png" height="540" alt="finish list activity" />
+        </section>
+        <section>
+          <p class="title">3. 新增清單畫面</p>
+          <ul><li>設定進入方式</li></ul>
+          <img src="./img/android-lab03_02-05.png" height="540" alt="finish intent" />
+        </section>
+      </section>
+      <!-- Slides 6 -->
+      <section>
+        <section>
+          <p class="title">4. 設定每一筆資料呈現的樣式</p>
+          <ul><li>新增 xml</li></ul>
+          <img src="./img/android-lab03_03-01.png" height="540" alt="add new xml(1)" />
+        </section>
+        <section>
+          <p class="title">4. 設定每一筆資料呈現的樣式</p>
+          <ul><li>命名 xml</li></ul>
+          <img src="./img/android-lab03_03-02.png" height="540" alt="add new xml(2)" />
+        </section>
+        <section>
+          <p class="title">4. 設定每一筆資料呈現的樣式</p>
+          <ul>
+            <li>完成 UI&nbsp;&nbsp;&nbsp;
+              <a href="https://raw.githubusercontent.com/Oschangkai/2018Android-at-HSNU/master/Android_lab03/app/src/main/res/layout/bmi_data_row.xml">
+                點我複製
+              </a>
+            </li>
+          </ul>
+          <img src="./img/android-lab03_03-03.png" height="540" alt="finish ui" />
+        </section>
+      </section>
+      <!-- Slides 7 -->
+      <section>
+        <section>
+          <p class="title">5. 創立 Adapter，建立客製化清單</p>
+          <ul><li>新增 class</li></ul>
+          <img src="./img/android-lab03_04-01.png" height="540" alt="add new class(1)" />
+        </section>
+        <section>
+          <p class="title">5. 創立 Adapter，建立客製化清單</p>
+          <ul><li>新增 class</li></ul>
+          <img src="./img/android-lab03_04-02.png" height="540" alt="add new class(2)" />
+        </section>
+        <section>
+          <p class="title">5. 創立 Adapter，建立客製化清單</p>
+          <ul><li>對 <code>BaseAdapter</code> 按 <code>alt+enter</code>，並選擇 Implement methods</li></ul>
+          <img src="./img/android-lab03_04-03.png" height="540" alt="implement methods(1)" />
+        </section>
+        <section>
+          <p class="title">5. 創立 Adapter，建立客製化清單</p>
+          <ul><li>選擇所需 Implement 的 methods</li></ul>
+          <img src="./img/android-lab03_04-04.png" height="540" alt="implement methods(2)" />
+        </section>
+        <section>
+          <p class="title">5. 創立 Adapter，建立客製化清單</p>
+          <ul>
+            <li>
+              完成 Adapter&nbsp;&nbsp;&nbsp;
+              <a href="https://slides.kaiyeee.tw/2018/q1/advanced-android01">教學</a>
+            </li>
+          </ul>
+          <img src="./img/android-lab03_04-05.png" height="540" alt="finish adapter" />
+        </section>
+        <section>
+          <p class="title">5. 創立 Adapter，建立客製化清單</p>
+          <ul><li>連接 adapter，並完成讀檔功能</li></ul>
+          <img src="./img/android-lab03_04-06.png" height="540" alt="finish listview" />
+        </section>
+      </section>
+      <!-- Slides 8 -->
+      <section>
+        <p class="title">成品</p>
+        <ul>
+          <li><a href="https://github.com/Oschangkai/2018Android-at-HSNU">https://github.com/Oschangkai/2018Android-at-HSNU</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <!-- Slides -->
+  <!--<section>
+      <p class="title">Database - Table</p>
+      <ul>
+        <li>Table name: BMI</li>
+      </ul>
+      <table>
+        <thead>
+          <th style="width: 37%">Column Name</th>
+          <th style="width: 33%">Data Type</th>
+          <th>Key</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>TEXT</td>
+            <td>PRIMARY KEY NOT NULL</td>
+          </tr>
+          <tr>
+            <td>height</td>
+            <td>DOUBLE</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>weight</td>
+            <td>DOUBLE</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>-->
+    <!-- Slides -->
+    <!--<section class="center">
+      <p style="font-size: 48px;"><b>Room</b></p>
+      <small style="font-size: 14px;"><a href="https://developer.android.com/training/data-storage/room/index.html">developer.android.com</a></small>
+    </section>-->
+    <!-- Slides -->
+    <!--<section>
+      <p class="title">Components in Room</p>
+      <ul>
+        <li>Database</li>
+        <ul>
+          <li>Be an abstract class that extends RoomDatabase.</li>
+          <li>Include the list of entities associated with the database within the annotation.</li>
+          <li>Contain an abstract method that has 0 arguments and returns the class that is annotated with <code>@Dao</code>.</li>
+        </ul>
+        <li>Entity</li>
+        <ul>
+          <li>Represents a table within the database.</li>
+        </ul>
+        <li>DAO (Data Access Objects)</li>
+        <ul>
+          <li>Contains the methods used for accessing the database.</li>
+        </ul>
+      </ul>
+    </section>-->
+
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
