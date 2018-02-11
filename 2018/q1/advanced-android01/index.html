@@ -167,8 +167,10 @@
         <p class="title">Inflater vs <code>findViewById()</code>？</p>
         <ul>
           <li>Inflater 英文翻譯為「膨脹」。在這裡，我們姑且看作「擴展」、「延伸」</li>
-          <li>與 <code>findViewById()</code> 不同的是，Inflater 是用來找 layout 下的 xml 版面配置檔，並且實體化</li>
+          <li>對於一個沒有被載入或者想要動態載入的界面 (版面配置)，都需要使用inflate來載入</li>
+          <li>與 <code>findViewById()</code> 不同的是，Inflater 是用來找 layout 下的 xml 界面檔，並且實體化</li>
           <li>但 <code>findViewById()</code> 是用來找 xml 中某個 widget (例如：TextView, Button)</li>
+          <li>View 實體化以後，可以用 <code>findViewById()</code> 搜尋界面中的特定元件</li>
         </ul>
       </section>
       <!-- Slides 10 -->
