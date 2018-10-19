@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Basic Python 01 - 1105@HSNU</title>
+
+  <meta name="description" content="基礎 Python 教學，1105@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    .reveal>.slides>section * {
+      font-family: 'Source Sans Pro', Helvetica, 'Noto Sans', 'Noto Sans CJK TC', '微軟正黑體';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, h4, h5, h6, b, p {
+      letter-spacing: 0em!important;
+      text-transform: none!important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: darkslategray!important;
+      font-weight: 550!important;
+    }
+    .reveal>.slides>section p {
+      line-height: 3.8rem;
+      font-size: 32px;
+    }
+    .reveal>.slides>section b {
+      font-weight: 700!important;
+    }
+    .reveal>.slides>section small {
+      font-weight: 200!important;
+      vertical-align: baseline;
+      font-size: 22px;
+    }
+    .reveal>.slides>section ul {
+      font-size: 32px;
+      line-height: 5rem;
+      display: block;
+    }
+    .reveal>.slides>section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+    .reveal>.slides>section pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+      line-height: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .reveal>.slides>section pre>code span {
+      font-family: monospace!important;
+    }
+    .reveal>.slides>section code {
+      font-family: monospace!important;
+    }
+
+    .reveal>.slides>section .topic {
+      font-size: 68px;
+      line-height: 8.5rem!important;
+    }
+    .reveal>.slides>section .title {
+      font-size: 48px;
+      line-height: 6rem!important;
+    }
+    .left {
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112746234-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-112746234-2');
+  </script> -->
+  
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Cover -->
+      <section class="center">
+        <h1 class="topic">Python (1)</h1>
+        <small>Python 導論</small>
+      </section>
+
+      <!-- Slide 1 -->
+      <section>
+        <h1 class="title left">Who am I?</h1>
+        <img data-src="../../../head.jpeg" style="float: right; border-radius: 50%; border-width: 2px;" width="25%" />
+        <ul>
+          <li>張楷翊</li>
+          <li>元智資管 - 四年級</li>
+          <li>精藤股份有限公司 - 系統工程師 (實習生)</li>
+          <li>學了很多雜七雜八的東西<br />
+            <small>Java、R、C++、網路架設 ...</small>
+          </li>
+          <li>專長：網頁相關技術
+            <br />
+            <small>爬蟲 (pyhton)、Javascript、ASP.NET ...</small>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Slide 2 -->
+      <section>
+        <h1 class="title left">這堂課希望的進行方式~</h1>
+        <ul style="line-height: 7rem;">
+          <li class="fragment left">大家不要害羞</li>
+          <li class="fragment left">問題直接問</li>
+          <li class="fragment left">互相切磋學習</li>
+        </ul>
+        <aside class="notes" data-markdown>
+          - 我跟你們一樣是學生，也在學習中
+          - 不管是上課內容、大學生活、程式問題，都可以問，我會的都可以教你們 
+          - 當然如果有我不會而你們會的，我也想向你們請教 
+          - 有什麼想學的，我們可以討論一下，下次可以教 
+          - 問一下 
+            - 學生年紀 
+            - 有沒有學過程式
+            - 學過什麼 
+            - 會什麼
+        </aside>
+      </section>
+
+      <!-- Slide 3 -->
+      <section>
+        <!-- Slide 3.1 -->
+        <section class="center">
+          <h1 class="topic">開發環境</h1>
+        </section>
+        <!-- Slide 3.2 -->
+        <section>
+          <p class="left title">Chocolatey (Windows) &nbsp;&nbsp;<a href="https://chocolatey.org"><small class="left">https://chocolatey.org</small></a></p>
+          <p class="left"><small>套件管理器</small></p>
+          <pre>
+            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+              > @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+              
+              PS> Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+            </code>
+          </pre>
+          <img data-src="./img/chocolatey-download-page.png" alt="Chocolatey Download Page" width="77%"/>
+        </section>
+        <!-- Slide 3.3 -->
+        <section>
+          <p class="left title">Brew (Mac) &nbsp;&nbsp;<a href="https://brew.sh"><small class="left">https://brew.sh</small></a></p>
+          <p class="left"><small>套件管理器</small></p>
+          <pre>
+            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+              $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            </code>
+          </pre>
+          <img data-src="./img/brew-download-page.png" alt="HomeBrew Download Page" width="77%"/>
+        </section>
+        <!-- Slide 3.4 -->
+        <section>
+          <p class="left title">VSCode &nbsp;&nbsp;<a href="https://code.visualstudio.com"><small>https://code.visualstudio.com</small></a></p>
+          <p class="left"><small>編輯器</small></p>
+          <pre>
+            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+              $ brew cask install visual-studio-code
+              > choco install vscode
+            </code>
+          </pre>
+          <img data-src="./img/vscode-download-page.png" alt="VSCode Download Page" width="85%"/>
+        </section>
+        <!-- Slide 3.5 -->
+        <section>
+          <p class="left title">Python &nbsp;&nbsp;<a href="https://python.org"><small>https://python.org</small></a></p>
+          <pre>
+            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+              $ brew install python3
+              > choco install python3
+            </code>
+          </pre>
+          <img data-src="./img/python-download-page.png" alt="Python Download Page" width="85%"/>
+        </section>
+      </section>
+
+
+    </div>
+  </div>
+
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      touch: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      ]
+    });
+  </script>
+
+</body>
+</html>
