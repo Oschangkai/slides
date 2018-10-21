@@ -29,12 +29,6 @@
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
 
-  <script>
-    document.querySelectorAll("code").forEach(function(element) {
-    element.innerHTML = element.innerHTML.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-});
-  </script>
-
   <style>
     .reveal>.slides>section * {
       font-family: 'Source Sans Pro', Helvetica, 'Noto Sans', 'Noto Sans CJK TC', '微軟正黑體';
@@ -260,7 +254,7 @@
           <h1 class="title left"><code>print()</code></h1>
           <pre>
             <code class="hljs python big" data-trim data-noescape>
-              &gt;&gt;&gt; print("Hello HSNU!")
+              >>> print("Hello HSNU!")
               # Hello HSNU!
             </code>
           </pre>
@@ -282,8 +276,8 @@
           </p>
           <pre>
             <code class="hljs python big" data-trim data-noescape>
-              &gt;&gt;&gt; greeting = "Hello World!"
-              &gt;&gt;&gt; print(greeting)
+              >>> greeting = "Hello World!"
+              >>> print(greeting)
               # Hello World
             </code>
           </pre>
@@ -314,14 +308,14 @@
           <a href="./img/basic-python01_01-01.png">
             <pre>
               <code class="hljs python big" data-trim data-noescape>
-                &gt;&gt;&gt; year = 2018
-                &gt;&gt;&gt; type(year)
+                >>> year = 2018
+                >>> type(year)
                 # class 'int'
-                &gt;&gt;&gt; price_of_iPhone_Xs = 999.00
-                &gt;&gt;&gt; type(price_of_iPhone_Xs)
+                >>> price_of_iPhone_Xs = 999.00
+                >>> type(price_of_iPhone_Xs)
                 # class 'float'
-                &gt;&gt;&gt; year = "2018"
-                &gt;&gt;&gt; type(year)
+                >>> year = "2018"
+                >>> type(year)
                 # class 'str'
               </code>
             </pre>
@@ -334,15 +328,15 @@
           <a href="./img/basic-python01_01-02.png">
             <pre>
               <code class="hljs python big" data-trim data-noescape>
-                &gt;&gt;&gt; a = 1
-                &gt;&gt;&gt; b = "2"
-                &gt;&gt;&gt; print(a + b)
+                >>> a = 1
+                >>> b = "2"
+                >>> print(a + b)
                 # Traceback (most recent call last):
                 #   File "stdin", line 1, in "module"
                 # TypeError: unsupported operand type(s) for +: 'int' and 'str'
-                &gt;&gt;&gt; print(a + int(b))
+                >>> print(a + int(b))
                 # 3
-                &gt;&gt;&gt; print(str(a) + b)
+                >>> print(str(a) + b)
                 # 12
               </code>
             </pre>
