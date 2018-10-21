@@ -29,6 +29,12 @@
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
 
+  <script>
+    document.querySelectorAll("code").forEach(function(element) {
+    element.innerHTML = element.innerHTML.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+});
+  </script>
+
   <style>
     .reveal>.slides>section * {
       font-family: 'Source Sans Pro', Helvetica, 'Noto Sans', 'Noto Sans CJK TC', '微軟正黑體';
@@ -72,11 +78,24 @@
       margin-top: 0;
       margin-bottom: 0;
     }
+    .reveal>.slides>section code {
+      font-family: monospace!important;
+    }
+    .reveal>.slides>section pre>code mark {
+      font-family: monospace!important;
+    }
     .reveal>.slides>section pre>code span {
       font-family: monospace!important;
     }
-    .reveal>.slides>section code {
-      font-family: monospace!important;
+
+
+    .reveal>.slides>section code.note {
+      font-size: 16px;
+      line-height: 28px;
+    }
+    .reveal>.slides>section code.big {
+      font-size: 24px;
+      line-height: 34px;
     }
 
     .reveal>.slides>section .topic {
@@ -120,7 +139,7 @@
         <ul>
           <li>張楷翊</li>
           <li>元智資管 - 四年級</li>
-          <li>精藤股份有限公司 - 系統工程師 (實習生)</li>
+          <li>精藤股份有限公司 - 實習生</li>
           <li>學了很多雜七雜八的東西<br />
             <small>Java、R、C++、網路架設 ...</small>
           </li>
@@ -132,6 +151,17 @@
       </section>
 
       <!-- Slide 2 -->
+      <section>
+        <h1 class="title left">今天的簡報在哪裡？</h1>
+        <p class="left">
+          <a href="https://slides.kaiyeee.tw/2018/q4/basic-python01">https://slides.kaiyeee.tw/today</a>
+        </p>
+        <a href="https://slides.kaiyeee.tw/2018/q4/basic-python01">
+          <img src="./img/url.png" alt="QRCode">
+        </a>
+      </section>
+
+      <!-- Slide 3 -->
       <section>
         <h1 class="title left">這堂課希望的進行方式~</h1>
         <ul style="line-height: 7rem;">
@@ -152,18 +182,18 @@
         </aside>
       </section>
 
-      <!-- Slide 3 -->
+      <!-- Slide 4 -->
       <section>
-        <!-- Slide 3.1 -->
+        <!-- Slide 4.1 -->
         <section class="center">
           <h1 class="topic">開發環境</h1>
         </section>
-        <!-- Slide 3.2 -->
+        <!-- Slide 4.2 -->
         <section>
           <p class="left title">Chocolatey (Windows) &nbsp;&nbsp;<a href="https://chocolatey.org"><small class="left">https://chocolatey.org</small></a></p>
           <p class="left"><small>套件管理器</small></p>
           <pre>
-            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+            <code class="hljs shell note" data-trim data-noescape>
               > @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
               
               PS> Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -171,43 +201,184 @@
           </pre>
           <img data-src="./img/chocolatey-download-page.png" alt="Chocolatey Download Page" width="77%"/>
         </section>
-        <!-- Slide 3.3 -->
+        <!-- Slide 4.3 -->
         <section>
           <p class="left title">Brew (Mac) &nbsp;&nbsp;<a href="https://brew.sh"><small class="left">https://brew.sh</small></a></p>
           <p class="left"><small>套件管理器</small></p>
           <pre>
-            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+            <code class="hljs shell note" data-trim data-noescape>
               $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
             </code>
           </pre>
           <img data-src="./img/brew-download-page.png" alt="HomeBrew Download Page" width="77%"/>
         </section>
-        <!-- Slide 3.4 -->
+        <!-- Slide 4.4 -->
         <section>
           <p class="left title">VSCode &nbsp;&nbsp;<a href="https://code.visualstudio.com"><small>https://code.visualstudio.com</small></a></p>
           <p class="left"><small>編輯器</small></p>
           <pre>
-            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+            <code class="hljs shell note" data-trim data-noescape>
               $ brew cask install visual-studio-code
               > choco install vscode
             </code>
           </pre>
           <img data-src="./img/vscode-download-page.png" alt="VSCode Download Page" width="85%"/>
         </section>
-        <!-- Slide 3.5 -->
+        <!-- Slide 4.5 -->
         <section>
           <p class="left title">Python &nbsp;&nbsp;<a href="https://python.org"><small>https://python.org</small></a></p>
           <pre>
-            <code class="hljs shell" style="font-size:16px; line-height: 28px" data-trim data-noescape>
+            <code class="hljs shell note" data-trim data-noescape>
               $ brew install python3
               > choco install python3
             </code>
           </pre>
           <img data-src="./img/python-download-page.png" alt="Python Download Page" width="85%"/>
         </section>
+        <!-- Slide 4.6 -->
+        <section>
+          <p class="left title">Verify</p>
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ python3 -V
+              > python -V
+            </code>
+          </pre>
+          <img data-src="./img/python-v.mac.png" alt="Python Verify Mac" width="45%"/>
+          <img data-src="./img/python-v.win.png" alt="Python Verify Win" width="50%"/>
+        </section>
       </section>
 
+      <!-- Slide 5 -->
+      <section>
+        <!-- Slide 5.1 -->
+        <section class="center">
+          <h1 class="topic">Hello World!</h1>
+        </section>
+        <!-- Slide 5.2 -->
+        <section>
+          <h1 class="title left"><code>print()</code></h1>
+          <pre>
+            <code class="hljs python big" data-trim data-noescape>
+              >>> print("Hello HSNU!")
+              # Hello HSNU!
+            </code>
+          </pre>
+          <img data-src="./img/basic-python01_00-01.png" />
+        </section>
+      </section>
 
+      <!-- Slide 6 -->
+      <section>
+        <!-- Slide 6.1 -->
+        <section class="center">
+          <h1 class="topic">變數 (Variable)</h1>
+        </section>
+        <!-- Slide 6.2 -->
+        <section>
+          <h1 class="title left">變數</h1>
+          <p class="left">
+            幫資料取一個名字，把資料儲存起來！
+          </p>
+          <pre>
+            <code class="hljs python big" data-trim data-noescape>
+              >>> greeting = "Hello World!"
+              >>> print(greeting)
+              # Hello World
+            </code>
+          </pre>
+        </section>
+      </section>
+
+      <!-- Slide 7 -->
+      <section>
+        <!-- Slide 7.1 -->
+        <section class="center">
+          <h1 class="topic">資料型態 (Data Type)</h1>
+        </section>
+        <!-- Slide 7.2 -->
+        <section>
+          <h1 class="title left">資料型態 (1)</h1>
+          <ul>
+            <li><code>int</code>&nbsp;&nbsp;整數</li>
+            <li><code>float</code>&nbsp;&nbsp;含小數點的數字</li>
+            <li><code>str</code>&nbsp;&nbsp;字串</li>
+          </ul>
+        </section>
+        <!-- Slide 7.3 -->
+        <section>
+          <h1 class="title left">資料型態 (2)</h1>
+          <p class="left">
+            Python 可以不用指定型態
+          </p>
+          <a href="./img/basic-python01_01-01.png">
+            <pre>
+              <code class="hljs python big" data-trim data-noescape>
+                >>> year = 2018
+                >>> type(year)
+                # class 'int'
+                >>> price_of_iPhone_Xs = 999.00
+                >>> type(price_of_iPhone_Xs)
+                # class 'float'
+                >>> year = "2018"
+                >>> type(year)
+                # class 'str'
+              </code>
+            </pre>
+          </a>
+        </section>
+        <!-- Slide 7.4 -->
+        <section>
+          <h1 class="title left">資料型態 - 轉型</h1>
+          <p class="left">試試看數字和字串相加吧</p>
+          <a href="./img/basic-python01_01-02.png">
+            <pre>
+              <code class="hljs python big" data-trim data-noescape>
+                >>> a = 1
+                >>> b = "2"
+                >>> print(a + b)
+                # Traceback (most recent call last):
+                #   File "stdin", line 1, in "module"
+                # TypeError: unsupported operand type(s) for +: 'int' and 'str'
+                >>> print(a + int(b))
+                # 3
+                >>> print(str(a) + b)
+                # 12
+              </code>
+            </pre>
+          </a>
+        </section>
+      </section>
+
+      <!-- Slide 8 -->
+      <section>
+        <h1 class="left title">最後的最後...</h1>
+        <p class="left">
+          裡面藏了很多東西，歡迎去挖寶：
+          <br />
+          <a href="https://github.com/Oschangkai">https://github.com/Oschangkai</a>
+        </p>
+        <p class="left">
+          我的聯絡方式...
+          <br />
+          Email:&nbsp;&nbsp;<a href="mailto://oschangakai@gmail.com">oschangakai@gmail.com</a>
+          <br />
+          FB:&nbsp;&nbsp;<a href="https://fb.com/kaiyeeeee">https://fb.com/kaiyeeeee</a>
+          <br />
+          Telegram:&nbsp;&nbsp;<a href="https://t.me/kaiyeee">@kaiyeee</a>
+        </p>
+      </section>
+
+      <!-- Slide 9 -->
+      <section>
+        <h1 class="left title">回饋表單</h1>
+        <p class="left">
+          拜託大家幫我填個表單~~
+          <br />
+          <a href="https://goo.gl/forms/MgIFTT4eW0jqcql73">https://slides.kaiyeee.tw/feedback</a>
+        </p>
+        <img src="./img/feedback.png" alt="QRCode">
+      </section>
     </div>
   </div>
 
