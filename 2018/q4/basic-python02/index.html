@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Basic Python 02 - 1112@HSNU</title>
+
+  <meta name="description" content="基礎 Python 教學，1112@HSNU">
+  <meta name="author" content="Oschangkai">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/atom-one-dark-reasonable.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    .reveal>.slides>section * {
+      font-family: 'Source Sans Pro', Helvetica, 'Noto Sans', 'Noto Sans CJK TC', '微軟正黑體';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, h4, h5, h6, b, p {
+      letter-spacing: 0em!important;
+      text-transform: none!important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: darkslategray!important;
+      font-weight: 550!important;
+    }
+    .reveal>.slides>section p {
+      line-height: 3.8rem;
+      font-size: 32px;
+    }
+    .reveal>.slides>section b {
+      font-weight: 700!important;
+    }
+    .reveal>.slides>section small {
+      font-weight: 200!important;
+      vertical-align: baseline;
+      font-size: 22px;
+    }
+    .reveal>.slides>section ul {
+      font-size: 32px;
+      line-height: 5rem;
+      display: block;
+    }
+    .reveal>.slides>section img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+    .reveal>.slides>section pre {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+      height: auto;
+      line-height: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .reveal>.slides>section code {
+      font-family: monospace!important;
+    }
+    .reveal>.slides>section pre>code mark {
+      font-family: monospace!important;
+    }
+    .reveal>.slides>section pre>code span {
+      font-family: monospace!important;
+    }
+
+
+    .reveal>.slides>section code.note {
+      font-size: 16px;
+      line-height: 28px;
+    }
+    .reveal>.slides>section code.big {
+      font-size: 24px;
+      line-height: 34px;
+    }
+
+    .reveal>.slides>section .topic {
+      font-size: 68px;
+      line-height: 8.5rem!important;
+    }
+    .reveal>.slides>section .title {
+      font-size: 48px;
+      line-height: 6rem!important;
+    }
+    .left {
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112746234-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-112746234-2');
+  </script>
+  
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Cover -->
+      <section class="center">
+        <h1 class="topic">Python (2)</h1>
+        <small>Python 導論</small>
+      </section>
+
+      <!-- Slide 1 -->
+      <section>
+        <!-- Slide 1.1 -->
+        <section class="center">
+          <h1 class="topic"><code>Input()</code></h1>
+          <small>與 VSCode 的教學</small>
+        </section>
+        <!-- Slide 1.2 -->
+        <section>
+          <h1 class="title left">VSCode 介面</h1>
+          <img src="./img/vscode-workspace.png" alt="VSCode Workspace">
+        </section>
+        <!-- Slide 1.3 -->
+        <section>
+          <h1 class="title left"><code>Input()</code></h1>
+          <p class="left">讓使用者輸入資料</p>
+          <p class="left"><code>Python:</code></p>
+          <pre>
+            <code class="hljs python big" data-trim data-noescape>
+              # 練習 1
+              a = input("請輸入字串1: ")
+              b = input("請輸入字串2: ")
+              print(a, b)
+            </code>
+          </pre>
+          <p class="left"><code>Terminal:</code></p>
+          <pre>
+            <code class="hljs shell big" data-trim data-noescape>
+              $ python3 basic-python02.py
+              # 請輸入字串1: 你好
+              # 請輸入字串2: 哈囉
+              # 你好 哈囉
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 1.4 -->
+        <section>
+          <h1 class="title left"><code>Input()</code></h1>
+          <p class="left"><code>Python:</code></p>
+          <pre>
+            <code class="hljs python big" data-trim data-noescape>
+              # 練習 2
+              a = int(input("數字1: "))
+              b = int(input("數字2: "))
+              print("相加為 ", a+b)
+              print("相乘為 ", a*b)
+            </code>
+          </pre>
+          <p class="left"><code>Terminal:</code></p>
+          <pre>
+            <code class="hljs shell big" data-trim data-noescape>
+              $ python3 basic-python02.py
+              # 數字1: 1
+              # 數字2: 2
+              # 相加為  3
+              # 相乘為  2
+            </code>
+          </pre>
+        </section>
+      </section>
+
+      <!-- Slide 2 -->
+      <section>
+        <!-- Slide 2.1 -->
+        <section class="center">
+          <h1 class="topic">If / Else</h1>
+          <small>如果 Apple 10 月發表新 iPad 我就買，不然就存錢</small>
+        </section>
+        <!-- 運算子 boolean -->
+      </section>
+
+      <!-- Slide 3 -->
+      <section>
+        <!-- Slide 3.1 -->
+        <section class="center">
+          <h1 class="topic">For / While 迴圈</h1>
+          <small>TOTTOKO 轉圈圈吧哈姆太郎</small>
+        </section>
+      </section>
+
+      <!-- Slide 4 -->
+      <section>
+        <!-- Slide 4.1 -->
+        <section class="center">
+          <h1 class="topic">List</h1>
+          <small>格子趣</small>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true, // 顯示箭頭
+      progress: true, // 顯示進度條
+      history: true,
+      center: false, // 是否上下置中
+      slideNumber: true,
+      touch: true,
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      ]
+    });
+  </script>
+
+</body>
+</html>
