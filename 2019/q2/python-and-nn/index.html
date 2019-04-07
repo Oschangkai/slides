@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>Basic Python 02 - 1112@HSNU</title>
+  <title>Python and DL - 0408@HSNU</title>
 
-  <meta name="description" content="基礎 Python 教學，1112@HSNU">
+  <meta name="description" content="Python 與 Deep Learning 的結合，0408@HSNU">
   <meta name="author" content="Oschangkai">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/theme/white.css">
 
   <!-- Theme used for syntax highlighting of code -->
-  <link rel="stylesheet" href="lib/css/atom-one-dark-reasonable.css">
+  <link rel="stylesheet" href="lib/css/zenburn.css">
 
   <!-- Printing and PDF exports -->
   <script>
@@ -116,104 +116,126 @@
     gtag('js', new Date());
     gtag('config', 'UA-112746234-2');
   </script>
+  
   <div class="reveal">
     <div class="slides">
 
       <!-- Cover -->
       <section class="center">
-        <h1 class="topic">Python (2)</h1>
-        <small>Python 導論</small>
+        <h1 class="topic">Python and Deep Learning</h1>
+        <small>Python 與深度學習的結合</small>
       </section>
 
       <!-- Slide 1 -->
       <section>
-        <!-- Slide 1.1 -->
-        <section class="center">
-          <h1 class="topic"><code>Input()</code></h1>
-          <small>與 VSCode 的教學</small>
-        </section>
-        <!-- Slide 1.2 -->
-        <section>
-          <h1 class="title left">VSCode 介面</h1>
-          <img src="./img/vscode-workspace.png" alt="VSCode Workspace">
-        </section>
-        <!-- Slide 1.3 -->
-        <section>
-          <h1 class="title left"><code>Input()</code></h1>
-          <p class="left">讓使用者輸入資料</p>
-          <p class="left"><code>Python:</code></p>
-          <pre>
-            <code class="hljs python big" data-trim data-noescape>
-              # 練習 1
-              a = input("請輸入字串1: ")
-              b = input("請輸入字串2: ")
-              print(a, b)
-            </code>
-          </pre>
-          <p class="left"><code>Terminal:</code></p>
-          <pre>
-            <code class="hljs shell big" data-trim data-noescape>
-              $ python3 basic-python02.py
-              # 請輸入字串1: 你好
-              # 請輸入字串2: 哈囉
-              # 你好 哈囉
-            </code>
-          </pre>
-        </section>
-        <!-- Slide 1.4 -->
-        <section>
-          <h1 class="title left"><code>Input()</code></h1>
-          <p class="left"><code>Python:</code></p>
-          <pre>
-            <code class="hljs python big" data-trim data-noescape>
-              # 練習 2
-              a = int(input("數字1: "))
-              b = int(input("數字2: "))
-              print("相加為 ", a+b)
-              print("相乘為 ", a*b)
-            </code>
-          </pre>
-          <p class="left"><code>Terminal:</code></p>
-          <pre>
-            <code class="hljs shell big" data-trim data-noescape>
-              $ python3 basic-python02.py
-              # 數字1: 1
-              # 數字2: 2
-              # 相加為  3
-              # 相乘為  2
-            </code>
-          </pre>
-        </section>
+        <h1 class="title left">今天的簡報在哪裡？</h1>
+        <p class="left">
+          <a href="https://slides.kaiyeee.tw/2019/q2/python-and-nn">https://slides.kaiyeee.tw/today</a>
+        </p>
+        <a href="https://slides.kaiyeee.tw/2019/q2/python-and-nn">
+          <img src="./img/url.png" alt="QRCode">
+        </a>
       </section>
 
       <!-- Slide 2 -->
       <section>
         <!-- Slide 2.1 -->
         <section class="center">
-          <h1 class="topic">If / Else</h1>
-          <small>如果 iPad <= 30K 我就馬上下單，不然的話，我就存錢</small>
+          <h1 class="topic">開發環境</h1>
         </section>
-        <!-- 運算子 boolean -->
+        <!-- Slide 2.2 -->
+        <section>
+          <p class="left title">Chocolatey (Windows) &nbsp;&nbsp;<a href="https://chocolatey.org"><small class="left">https://chocolatey.org</small></a></p>
+          <p class="left"><small>套件管理器</small></p>
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              > @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+              
+              PS> Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+            </code>
+          </pre>
+          <img data-src="./img/chocolatey-download-page.png" alt="Chocolatey Download Page" width="77%"/>
+        </section>
+        <!-- Slide 2.3 -->
+        <section>
+          <p class="left title">Brew (Mac) &nbsp;&nbsp;<a href="https://brew.sh"><small class="left">https://brew.sh</small></a></p>
+          <p class="left"><small>套件管理器</small></p>
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            </code>
+          </pre>
+          <img data-src="./img/brew-download-page.png" alt="HomeBrew Download Page" width="77%"/>
+        </section>
+        <!-- Slide 2.4 -->
+        <section>
+          <p class="left title">VSCode &nbsp;&nbsp;<a href="https://code.visualstudio.com"><small>https://code.visualstudio.com</small></a></p>
+          <p class="left"><small>編輯器</small></p>
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ brew cask install visual-studio-code
+              > choco install vscode
+            </code>
+          </pre>
+          <img data-src="./img/vscode-download-page.png" alt="VSCode Download Page" width="85%"/>
+        </section>
+        <!-- Slide 2.5 -->
+        <section>
+          <p class="left title">Python &nbsp;&nbsp;<a href="https://python.org"><small>https://python.org</small></a></p>
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ brew install python3
+              > choco install python3
+            </code>
+          </pre>
+          <img data-src="./img/python-download-page.png" alt="Python Download Page" width="85%"/>
+        </section>
+        <!-- Slide 2.6 -->
+        <section>
+          <p class="left title">Verify</p>
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ python3 -V
+              > python -V
+            </code>
+          </pre>
+          <img data-src="./img/python-v.mac.png" alt="Python Verify Mac" width="45%"/>
+          <img data-src="./img/python-v.win.png" alt="Python Verify Win" width="50%"/>
+        </section>
       </section>
 
-      <!-- Slide 3 -->
+
+      <!-- Slide Contact -->
       <section>
-        <!-- Slide 3.1 -->
-        <section class="center">
-          <h1 class="topic">For / While 迴圈</h1>
-          <small>TOTTOKO 轉圈圈吧哈姆太郎</small>
-        </section>
+        <h1 class="left title">最後的最後...</h1>
+        <p class="left">
+          裡面藏了很多東西，歡迎去挖寶：
+          <br />
+          <a href="https://github.com/Oschangkai">https://github.com/Oschangkai</a>
+        </p>
+        <p class="left">
+          我的聯絡方式...
+          <br />
+          Email:&nbsp;&nbsp;<a href="mailto://oschangakai@gmail.com">oschangakai@gmail.com</a>
+          <br />
+          FB:&nbsp;&nbsp;<a href="https://fb.com/kaiyeeeee">https://fb.com/kaiyeeeee</a>
+          <br />
+          Telegram:&nbsp;&nbsp;<a href="https://t.me/kaiyeee">@kaiyeee</a>
+        </p>
       </section>
 
-      <!-- Slide 4 -->
+      <!-- Slide Feedback -->
       <section>
-        <!-- Slide 4.1 -->
-        <section class="center">
-          <h1 class="topic">List</h1>
-          <small>格子趣</small>
-        </section>
+        <h1 class="left title">回饋表單</h1>
+        <p class="left">
+          拜託大家幫我填個表單~~
+          <br />
+          <a href="https://forms.gle/dkpma9ZvS26diVG36">https://slides.kaiyeee.tw/feedback</a>
+        </p>
+        <a href="https://forms.gle/dkpma9ZvS26diVG36">
+          <img src="./img/feedback.png" alt="QRCode">
+        </a>
       </section>
-
     </div>
   </div>
 
