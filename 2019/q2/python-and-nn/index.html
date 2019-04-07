@@ -88,8 +88,11 @@
       line-height: 28px;
     }
     .reveal>.slides>section code.big {
-      font-size: 24px;
+      font-size: 22px;
       line-height: 34px;
+    }
+    .reveal>.slides>section code.big.space {
+      line-height: 44px;
     }
 
     .reveal>.slides>section .topic {
@@ -102,6 +105,9 @@
     }
     .left {
       text-align: left;
+    }
+    .red {
+      color:crimson;
     }
   </style>
 </head>
@@ -139,11 +145,32 @@
 
       <!-- Slide 2 -->
       <section>
+        <!-- Slide 2.0 -->
+        <section class="center">
+          <h1 class="topic">Python 可以做什麼？</h1>
+        </section>
         <!-- Slide 2.1 -->
+        <section>
+          <h1 class="title left">Python 可以...</h1>
+          <ul>
+            <li>聊天機器人 (e.g., LINE Bot, Facebook Messenger)</li>
+            <li>爬蟲 (<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup</a>, <a href="http://python-requests.org">Requests</a>)</li>
+            <li>資料分析 (<a href="https://pandas.pydata.org">Pandas</a>)</li>
+            <li>資料視覺化 (e.g., <a href="https://matplotlib.org/">matplotlib</a>, <a href="https://plot.ly/python/">Plotly</a>)</li>
+            <li>架網頁伺服器 (<a href="http://flask.pocoo.org">Flask</a>)</li>
+            <li>機器學習 (ML)、深度學習 (DL) (<a href="http://keras.io">Keras</a>)</li>
+          </ul>
+          <p class="left red fragment">眾多的現成套件可以使用！</p>
+        </section>
+      </section>
+
+      <!-- Slide 3 -->
+      <section>
+        <!-- Slide 3.0 -->
         <section class="center">
           <h1 class="topic">開發環境</h1>
         </section>
-        <!-- Slide 2.2 -->
+        <!-- Slide 3.1 -->
         <section>
           <p class="left title">Chocolatey (Windows) &nbsp;&nbsp;<a href="https://chocolatey.org"><small class="left">https://chocolatey.org</small></a></p>
           <p class="left"><small>套件管理器</small></p>
@@ -156,7 +183,7 @@
           </pre>
           <img data-src="./img/chocolatey-download-page.png" alt="Chocolatey Download Page" width="77%"/>
         </section>
-        <!-- Slide 2.3 -->
+        <!-- Slide 3.2 -->
         <section>
           <p class="left title">Brew (Mac) &nbsp;&nbsp;<a href="https://brew.sh"><small class="left">https://brew.sh</small></a></p>
           <p class="left"><small>套件管理器</small></p>
@@ -167,7 +194,7 @@
           </pre>
           <img data-src="./img/brew-download-page.png" alt="HomeBrew Download Page" width="77%"/>
         </section>
-        <!-- Slide 2.4 -->
+        <!-- Slide 3.3 -->
         <section>
           <p class="left title">VSCode &nbsp;&nbsp;<a href="https://code.visualstudio.com"><small>https://code.visualstudio.com</small></a></p>
           <p class="left"><small>編輯器</small></p>
@@ -179,7 +206,7 @@
           </pre>
           <img data-src="./img/vscode-download-page.png" alt="VSCode Download Page" width="85%"/>
         </section>
-        <!-- Slide 2.5 -->
+        <!-- Slide 3.4 -->
         <section>
           <p class="left title">Python &nbsp;&nbsp;<a href="https://python.org"><small>https://python.org</small></a></p>
           <pre>
@@ -190,7 +217,7 @@
           </pre>
           <img data-src="./img/python-download-page.png" alt="Python Download Page" width="85%"/>
         </section>
-        <!-- Slide 2.6 -->
+        <!-- Slide 3.5 -->
         <section>
           <p class="left title">Verify</p>
           <pre>
@@ -204,6 +231,262 @@
         </section>
       </section>
 
+      <!-- Slide 4 -->
+      <section>
+        <!-- Slide 4.0 -->
+        <section class="center">
+          <h1 class="topic">語法簡介</h1>
+        </section>
+        <!-- Slide 4.1 -->
+        <section>
+          <p class="title left">變數 (Variable)</p>
+          <p class="left">
+              幫資料取一個名字，把資料儲存起來！
+            </p>
+            <pre>
+              <code class="hljs python big" data-trim data-noescape>
+                >>> greeting = "Hello World!"
+                >>> print(greeting)
+                # Hello World
+              </code>
+            </pre>
+        </section>
+        <!-- Slide 4.2 -->
+        <section>
+          <h1 class="title left">資料型態 (1)</h1>
+          <ul>
+            <li><code>int</code>&nbsp;&nbsp;整數</li>
+            <li><code>float</code>&nbsp;&nbsp;含小數點的數字</li>
+            <li><code>str</code>&nbsp;&nbsp;字串</li>
+            <li><code>bool</code>&nbsp;&nbsp;布林</li>
+          </ul>
+        </section>
+        <!-- Slide 4.3 -->
+        <section>
+          <h1 class="title left">資料型態 (2)</h1>
+          <p class="left">
+            Python 可以不用指定型態
+          </p>
+          <a href="./img/basic-python01_01-01.png">
+            <pre>
+              <code class="hljs python big" data-trim data-noescape>
+                >>> year = 2018
+                >>> type(year)
+                # class 'int'
+                >>> price_of_iPhone_Xs = 999.00
+                >>> type(price_of_iPhone_Xs)
+                # class 'float'
+                >>> year = "2018"
+                >>> type(year)
+                # class 'str'
+              </code>
+            </pre>
+          </a>
+          <p class="left">
+            <small>延伸閱讀：<a href="https://doggy8088.github.io/A-Whirlwind-Tour-of-Python-zh-tw/#pf16">動態型別的實作方式</a></small>
+          </p>
+        </section>
+        <!-- Slide 4.4 -->
+        <section>
+          <h1 class="title left">資料型態 - 轉型</h1>
+          <p class="left">試試看數字和字串相加吧</p>
+          <a href="./img/basic-python01_01-02.png">
+            <pre>
+              <code class="hljs python big" data-trim data-noescape>
+                >>> a = 1
+                >>> b = "2"
+                >>> print(a + b)
+                # Traceback (most recent call last):
+                #   File "stdin", line 1, in "module"
+                # TypeError: unsupported operand type(s) for +: 'int' and 'str'
+                >>> print(a + int(b))
+                # 3
+                >>> print(str(a) + b)
+                # 12
+              </code>
+            </pre>
+          </a>
+        </section>
+        <!-- Slide 4.5 -->
+        <section>
+          <h1 class="title left">位元運算子</h1>
+          <pre>
+            <code class="hljs python big" data-trim data-noescape>
+              >>> a = 27 # 0b11011
+              >>> b = 21 # 0b10101
+              >>> print(a & b)
+              # 17 (0b10001)
+              >>> print(a | b)
+              # 31 (0b11111)
+              >>> print(b << 1)
+              # 42 (0b101010)
+              >>> print(b >> 1)
+              # 10 (0b1010)
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 4.6 -->
+        <section>
+          <h1 class="title left">布林運算</h1>
+          <pre>
+            <code class="hljs python note" data-trim data-noescape>
+              >>> c = (9 < 7)
+              >>> d = (9 > 7)
+              >>> e = (7 <= 7)
+              >>> print(c)
+              # False
+              >>> print(d)
+              # Ture
+              >>> print(e)
+              # True
+              >>> print(int(c))
+              # 0
+              >>> print(int(d))
+              # 1
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 4.7 -->
+        <section>
+          <h1 class="title left">List</h1>
+          <pre>
+            <code class="hljs python big" data-trim data-noescape>
+              >>> L = [0,1,2,0,1]
+              >>> print(L)
+              # [0, 3, 2, 0, 1]
+              >>> L.append(9)
+              >>> print(L)
+              # [0, 3, 2, 0, 1, 9]
+              >>> print(L[5])
+              # 9
+              >>> print(L[-2])
+              # 1
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 4.8 -->
+        <section>
+          <h1 class="title left">條件語句：if-elif-else</h1>
+          <pre>
+            <code class="hljs python note" data-trim data-noescape>
+              # if.py
+              x = 15
+              if x == 0:
+                print(x, "is zero")
+              elif x > 0:
+                print(x, "is positive")
+              elif x < 0:
+                print(x, "is negative")
+              else:
+                print(x, "is unlike anything I've ever seen...")
+            </code>
+          </pre>
+          <br />
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ python if.py
+              ## 15 is positive
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 4.9 -->
+        <section>
+          <h1 class="title left">for 迴圈</h1>
+          <pre>
+            <code class="hljs python note" data-trim data-noescape>
+              # for.py
+              for i in range(1,10):
+                print(i, end = ' ')
+              fruits = ["Apple", "Banana", "Peach"]
+              for j in fruits:
+                print(j, end = ' ')
+            </code>
+          </pre>
+          <br />
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ python for.py
+              ## 1 2 3 4 5 6 7 8 9 Apple Banana Peach
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 4.10 -->
+        <section>
+          <h1 class="title left">def 定義 function</h1>
+          <pre>
+              <code class="hljs python note" data-trim data-noescape>
+                # def.py
+                def fibonacci(N, a=0, b=1):
+                  L = []
+                  while len(L) < N:
+                      a, b = b, a + b
+                      L.append(a)
+                  return L
+                fib10 = fibonacci(10)
+                print(fib10)
+                fib10from2 = fibonacci(10, 0, 2)
+                print(fib10from2)
+                print(fibonacci(10, b=3, a=1))
+              </code>
+            </pre>
+            <br />
+            <pre>
+              <code class="hljs shell note" data-trim data-noescape>
+                $ python def.py
+                ## [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+                ## [2, 2, 4, 6, 10, 16, 26, 42, 68, 110]
+                ## [3, 4, 7, 11, 18, 29, 47, 76, 123, 199]
+              </code>
+            </pre>
+        </section>
+        <!-- Slide 4.11 -->
+        <section>
+          <h1 class="title left">程式進入點</h1>
+          <p class="left">等同於其他程式語言的 main 函式</p>
+          <pre>
+            <code class="hljs python big" data-trim data-noescape>
+              if __name__ == "__main__":
+            </code>
+          </pre>
+        </section>
+      </section>
+
+      <!-- Slide 4 -->
+      <section>
+        <!-- Slide 4.0 -->
+        <section class="center">
+          <h1 class="topic">外部套件使用方式</h1>
+        </section>
+        <!-- Slide 4.1 -->
+        <section>
+          <p class="title left">安裝外部套件 - 使用虛擬環境</p>
+          <p class="small left">程式碼：<a href="https://github.com/Oschangkai/NNGuessNumber">https://github.com/Oschangkai/NNGuessNumber</a></p>
+          <pre>
+            <code class="hljs shell big space" data-trim data-noescape>
+              ## 進入專案資料夾
+              $ cd Project
+              ## 安裝虛擬環境
+              $ pip install pipenv
+              ## 安裝套件進入虛擬環境
+              $ pipenv install
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 4.2 -->
+        <section>
+          <p class="title left">觀察 <code>Pipfile</code></p>
+          <pre>
+            <code class="hljs plaintext big" data-trim data-noescape>
+              [packages]
+              numpy = "*"
+              matplotlib = "*"
+
+              [requires]
+              python_version = "3.7"
+            </code>
+          </pre>
+        </section>
+      </section>
 
       <!-- Slide Contact -->
       <section>
@@ -218,10 +501,19 @@
           <br />
           Email:&nbsp;&nbsp;<a href="mailto://oschangakai@gmail.com">oschangakai@gmail.com</a>
           <br />
-          FB:&nbsp;&nbsp;<a href="https://fb.com/kaiyeeeee">https://fb.com/kaiyeeeee</a>
-          <br />
+          <!-- FB:&nbsp;&nbsp;<a href="https://fb.com/kaiyeeeee">https://fb.com/kaiyeeeee</a>
+          <br /> -->
           Telegram:&nbsp;&nbsp;<a href="https://t.me/kaiyeee">@kaiyeee</a>
         </p>
+        <p class="left">
+          推薦讀物
+          <br />
+          <ul>
+            <li><a href="https://doggy8088.github.io/A-Whirlwind-Tour-of-Python-zh-tw">A Whirlwind Tour of Python (繁體中文版)</a></li>
+          </ul>
+          
+        </p>
+
       </section>
 
       <!-- Slide Feedback -->
