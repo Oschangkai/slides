@@ -60,6 +60,10 @@
       line-height: 5rem;
       display: block;
     }
+    .reveal>.slides>section ul.tite {
+      line-height: 2.5rem;
+      font-size: 28px;
+    }
     .reveal>.slides>section img {
       background: none;
       border: none;
@@ -398,8 +402,8 @@
               for i in range(1,10):
                 print(i, end = ' ')
               fruits = ["Apple", "Banana", "Peach"]
-              for j in fruits:
-                print(j, end = ' ')
+              for fruit in fruits:
+                print(fruit, end = ' ')
             </code>
           </pre>
           <br />
@@ -445,7 +449,54 @@
           <p class="left">等同於其他程式語言的 main 函式</p>
           <pre>
             <code class="hljs python big" data-trim data-noescape>
+              # main.py
+              def show_fruits():
+                fruits = ["Apple", "Banana", "Peach"]
+                for fruit in fruits:
+                  print(fruit, end = ' ')
+              def show_one2ten():
+                for i in range(1,11):
+                  print(i, end = ' ')
               if __name__ == "__main__":
+                show_one2ten()
+            </code>
+          </pre>
+          <br />
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ python main.py
+              ## 1 2 3 4 5 6 7 8 9 10
+            </code>
+          </pre>
+        </section>
+        <!-- Slide 4.12 -->
+        <section>
+          <h1 class="title left">class 類別</h1>
+          <pre>
+            <code class="hljs python note" data-trim data-noescape>
+              # class.py
+              class Dog():
+                def __init__(self, name, age):
+                  self.sound = 'Bark!'
+                  self.name = name
+                  self.age = age
+                def make_sound(self):
+                  print(self.sound)
+                def show_age(self):
+                  print(self.age)
+
+              if __name__ == "__main__":
+                goby = Dog('Goby', 4)
+                goby.make_sound()
+                goby.show_age()
+            </code>
+          </pre>
+          <br />
+          <pre>
+            <code class="hljs shell note" data-trim data-noescape>
+              $ python class.py
+              ## Bark!
+              ## 4
             </code>
           </pre>
         </section>
@@ -474,7 +525,7 @@
         </section>
         <!-- Slide 5.2 -->
         <section>
-          <p class="title left">觀察 <code>Pipfile</code></p>
+          <h1 class="title left">觀察 <code>Pipfile</code></h1>
           <pre>
             <code class="hljs plaintext big" data-trim data-noescape>
               [packages]
@@ -483,6 +534,41 @@
 
               [requires]
               python_version = "3.7"
+            </code>
+          </pre>
+          <p class="left">
+            <ul class="tite">
+              <li><a href="http://www.numpy.org/">Numpy</a></li>
+              <li><a href="https://matplotlib.org/">matplotlib</a></li>
+            </ul>
+          </p>
+        </section>
+        <!-- Slide 5.3 -->
+        <section>
+          <h1 class="title left">matplotlib 範例</h1>
+          <pre>
+            <code class="hljs python note" data-trim data-noescape>
+              import numpy as np
+              # Mac
+              import matplotlib
+              matplotlib.use('TkAgg')
+
+              import matplotlib.pyplot as plt
+
+              x = np.linspace(0, 2, 100)
+
+              plt.plot(x, x, label='linear')
+              plt.plot(x, x**2, label='quadratic')
+              plt.plot(x, x**3, label='cubic')
+
+              plt.xlabel('x label')
+              plt.ylabel('y label')
+
+              plt.title("Simple Plot")
+
+              plt.legend()
+
+              plt.savefig('fig.png')
             </code>
           </pre>
         </section>
